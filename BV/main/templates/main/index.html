@@ -1,0 +1,709 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>Bon Voyage: Travel With Ease</title>
+
+	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="{% static 'main/css/all.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'main/css/all.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'main/css/lightbox.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'main/css/flexslider.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'main/css/owl.carousel.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'main/css/owl.theme_default.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'main/css/jquery.rateyo.css' %}"/>
+	<!-- <link rel="stylesheet" type="text/css" href="css/jquery.mmenu.all.css" /> -->
+	<!-- <link rel="stylesheet" type="text/css" href="css/meanmenu.min.css"> -->
+	<link rel="stylesheet" type="text/css" href="{% static 'main/inner-page-style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'main/style.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700" rel="stylesheet">
+</head>
+<body>
+
+	<div id="page" class="site" itemscope itemtype="http://schema.org/LocalBusiness">
+		<header class="site-header">
+			<div class="top-header">
+				<div class="container">
+					<div class="top-header-left">
+						<div class="top-header-block">
+							<a href="mailto:info@bonvoyage.com" itemprop="email"><i class="fas fa-envelope"></i> info@bonvoyage.com</a>
+						</div>
+						<div class="top-header-block">
+							<a href="tel:+8801686614624" itemprop="telephone"><i class="fas fa-phone"></i> +88 01686614624</a>
+						</div>
+					</div>
+					<div class="top-header-right">
+						<div class="social-block">
+							<ul class="social-list">
+								<li><a href=""><i class="fab fa-viber"></i></a></li>
+								<li><a href=""><i class="fab fa-google-plus-g"></i></a></li>
+								<li><a href=""><i class="fab fa-facebook-square"></i></a></li>
+								<li><a href=""><i class="fab fa-facebook-messenger"></i></a></li>
+								<li><a href=""><i class="fab fa-twitter"></i></a></li>
+								<li><a href=""><i class="fab fa-skype"></i></a></li>
+							</ul>
+						</div>
+						<div class="login-block">
+							<a href="">Login /</a>
+							<a href="">Register</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Top header Close -->
+			<div class="main-header">
+				<div class="container">
+					<div class="logo-wrap" itemprop="logo">
+						<img src="{% static 'main/images/site-logo.png' %}" alt="Logo Image">
+						<!-- <h1>Education</h1> -->
+					</div>
+					<div class="nav-wrap">
+						<nav class="nav-desktop">
+							<ul class="menu-list">
+								<li><a href="#">Home</a></li>
+								<li class="menu-parent">Events
+									<ul class="sub-menu">
+										<li><a href="#">Popular</a></li>
+										<li><a href="#">Ongoing</a></li>
+										<li class="menu-parent">Others
+											<ul class="sub-menu">
+												<li><a href="">Local</a></li>
+												<li><a href="">International</a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li class="menu-parent">News
+									<ul class="sub-menu">
+										<li><a href="#">Child</a></li>
+										<li><a href="#">Child</a></li>
+									</ul>
+								</li>
+								<li><a href="">About</a></li>
+								<li><a href="">Gallery</a></li>
+								<li><a href="">Contact</a></li>
+							</ul>
+						</nav>
+						<div id="bar">
+							<i class="fas fa-bars"></i>
+						</div>
+						<div id="close">
+							<i class="fas fa-times"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- Header Close -->
+		<div class="banner">
+			<div class="owl-four owl-carousel" itemprop="image">
+				<img src="{% static 'main/images/page-banner.png' %}" alt="Image of Bannner">
+				<img src="{% static 'main/images/page-banner2.png' %}" alt="Image of Bannner">
+				<img src="{% static 'main/images/page-banner3.png' %}" alt="Image of Bannner">
+			</div>
+			<div class="container" itemprop="description">
+				<h1>welcome to Bon Voyage</h1>
+				<h3>Witness an expert journey guide...</h3>
+			</div>
+			 <div id="owl-four-nav" class="owl-nav"></div>
+		</div>
+		<!-- <div class="banner">
+			<div class="owl-five owl-carousel owl-theme">
+	            <div class="item-video">
+            		<iframe width="100%" height="450" src="https://www.youtube.com/embed/ENVW3uZ3a-4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            		</iframe>
+	            </div>
+	            <div class="item-video">
+	            	<iframe width="100%" height="450" src="https://www.youtube.com/embed/0bfk90rWV9U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	            </div>
+	            <div class="item-video">
+	            	<iframe width="100%" height="450" src="https://www.youtube.com/embed/ktvTqknDobU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	            </div>
+	            <div class="item-video">
+            		<iframe width="100%" height="450" src="https://www.youtube.com/embed/ENVW3uZ3a-4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            		</iframe>
+	            </div>
+	            <div class="item-video">
+	            	<iframe width="100%" height="450" src="https://www.youtube.com/embed/0bfk90rWV9U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	            </div>
+	            <div class="item-video">
+	            	<iframe width="100%" height="450" src="https://www.youtube.com/embed/ktvTqknDobU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	            </div>
+          </div>
+		</div> -->
+		<!-- Banner Close -->
+		<div class="page-heading">
+			<div class="container">
+				<h2>popular events</h2>
+			</div>
+		</div>
+		<!-- Popular courses End -->
+		<div class="learn-courses">
+			<div class="container">
+				<div class="courses">
+					<div class="owl-one owl-carousel">
+						<div class="box-wrap" itemprop="event" itemscope itemtype=" http://schema.org/Course">
+							<div class="img-wrap" itemprop="image"><img src="{% static 'main/images/saint-pic.png' %}" alt="courses picture"></div>
+								<a href="#" class="learn-desining-banner" itemprop="name">Saint Martin Relax Trip >>></a>
+							<div class="box-body" itemprop="description">
+								<p>Witness the surreal beauty of Bangladesh's only coral island Saint Martin.
+									This trip includes sleeper coach to reach Teknaf from Dhaka and vice versa. With the best available accommodation,
+								food and recreation available in the island, make your weekend the best with Sea, Beach, Gulls and Nature.</p>
+								<section itemprop="time">
+									<p><span>Date:</span> 02 June, 2022</p>
+									<p><span>Duration:</span> 3 Days, 4 Nights</p>
+									<p><span>Transport:</span> Sleeper-Coach / Ship</p>
+									<p><span>Fee:</span> 10,000.00 BDT</p>
+								</section>
+							</div>
+						</div>
+
+						<div class="box-wrap" itemprop="event" itemscope itemtype=" http://schema.org/Course">
+							<div class="img-wrap"  itemprop="image"><img src="{% static 'main/images/sylhet-pic.png' %}" alt="courses picture"></div>
+								<a href="#" class="learn-desining-banner" itemprop="name">Sylhet Trip >>></a>
+							<div class="box-body" itemprop="description">
+								<p>Enjoy the best of Sylhet with our expert guide. You will find rivers, hills and jungles blooming with beautiful flora. Get comprehensive knowledge on the geography of Varinda plateau.</p>
+								<section itemprop="time">
+									<p><span>Date:</span> 02 May, 2022</p>
+									<p><span>Duration:</span> 2 Days, 3 Nights</p>
+									<p><span>Transport:</span> Bus, Chander Gari</p>
+									<p><span>Fee:</span> 8,000.00 BDT</p>
+								</section>
+							</div>
+						</div>
+
+						<div class="box-wrap" itemprop="event" itemscope itemtype=" http://schema.org/Course">
+							<div class="img-wrap"  itemprop="image"><img src="{% static 'main/images/bandarban-pic.png' %}" alt="courses picture"></div>
+								<a href="#" class="learn-desining-banner" itemprop="name">Bandarban Wild Trekking >>></a>
+							<div class="box-body" itemprop="description">
+								<p>Get yourself lost in the wilderness of the Bandarban hill tracts. Find spiritual satisfaction by witnessing the coexistence of nature, people and wildlife and learn about the primitive lifestyle of indigenous people of Bangladesh.</p>
+								<section itemprop="time">
+									<p><span>Date:</span> 02 April, 2022</p>
+									<p><span>Duration:</span> 5 Days, 6 Nights</p>
+									<p><span>Transport:</span> Bus, Chander Gari, Speed-Boat</p>
+									<p><span>Fee:</span> 12,000.00 BDT</p>
+								</section>
+							</div>
+						</div>
+
+						<div class="box-wrap" itemprop="event" itemscope itemtype=" http://schema.org/Course">
+							<div class="img-wrap"  itemprop="image"><img src="{% static 'main/images/kuakata-pic.png' %}" alt="courses picture"></div>
+								<a href="#" class="learn-desining-banner" itemprop="name">Kuakata Beach Luxury >>></a>
+							<div class="box-body" itemprop="description">
+								<p>Watch the sunrise and sunset in one of the most beautiful beaches, in BD, Kuakata also known as Shagarkanya this weekend. Stay in luxury hotel...</p>
+								<section itemprop="time">
+									<p><span>Date:</span> 02 March, 2022</p>
+									<p><span>Duration:</span> 3 Days, 4 Nights</p>
+									<p><span>Transport:</span> Luxury Ship</p>
+									<p><span>Fee:</span> 5,00,000 BDT</p>
+								</section>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Learn courses End -->
+		<section class="page-heading">
+			<div class="container">
+				<h2>gallery</h2>
+			</div>
+		</section>
+		<section class="gallery-images-section" itemprop="image" itemscope itemtype=" http://schema.org/ImageGallery">
+			<div class="gallery-img-wrap">
+				<a href="{% static 'main/images/gallery-img1.png' %}" data-lightbox="example-set" data-title="Click the right half of the image to move forward.">
+					<img src="{% static 'main/images/gallery-img1.png' %}" alt="gallery-images">
+				</a>
+			</div>
+			<div class="gallery-img-wrap">
+				<a href="{% static 'main/images/gallery-img2.png' %}" data-lightbox="example-set" data-title="Click the right half of the image to move forward.">
+					<img src="{% static 'main/images/gallery-img2.png' %}" alt="gallery-images">
+				</a>
+			</div>
+			<div class="gallery-img-wrap">
+				<a href="{% static 'main/images/gallery-img3.png' %}" data-lightbox="example-set" data-title="Click the right half of the image to move forward.">
+					<img src="{% static 'main/images/gallery-img3.png' %}" alt="gallery-images">
+				</a>
+			</div>
+			<div class="gallery-img-wrap">
+				<a href="{% static 'main/images/gallery-img4.png' %}" data-lightbox="example-set" data-title="Click the right half of the image to move forward.">
+					<img src="{% static 'main/images/gallery-img4.png' %}" alt="gallery-images">
+				</a>
+			</div>
+			<div class="gallery-img-wrap">
+				<a href="{% static 'main/images/gallery-img5.png' %}" data-lightbox="example-set" data-title="Click the right half of the image to move forward.">
+					<img src="{% static 'main/images/gallery-img5.png' %}" alt="gallery-images">
+				</a>
+			</div>
+			<div class="gallery-img-wrap">
+				<a href="{% static 'main/images/gallery-img6.png' %}" data-lightbox="example-set" data-title="Click the right half of the image to move forward.">
+					<img src="{% static 'main/images/gallery-img6.png' %}" alt="gallery-images">
+				</a>
+			</div>
+			<div class="gallery-img-wrap">
+				<a href="{% static 'main/images/gallery-img7.png' %}" data-lightbox="example-set" data-title="Click the right half of the image to move forward.">
+					<img src="{% static 'main/images/gallery-img7.png' %}" alt="gallery-images">
+				</a>
+			</div>
+			<div class="gallery-img-wrap">
+				<a href="{% static 'main/images/gallery-img8.png' %}" data-lightbox="example-set" data-title="Click the right half of the image to move forward.">
+					<img src="{% static 'main/images/gallery-img8.png' %}" alt="gallery-images">
+				</a>
+			</div>
+			<div class="gallery-img-wrap">
+				<a href="{% static 'main/images/gallery-img9.png' %}" data-lightbox="example-set" data-title="Click the right half of the image to move forward.">
+					<img src="{% static 'main/images/gallery-img9.png' %}" alt="gallery-images">
+				</a>
+			</div>
+			<div class="gallery-img-wrap">
+				<a href="{% static 'main/images/gallery-img10.png' %}" data-lightbox="example-set" data-title="Click the right half of the image to move forward.">
+					<img src="{% static 'main/images/gallery-img10.png' %}" alt="gallery-images">
+				</a>
+			</div>
+			<div class="gallery-img-wrap">
+				<a href="{% static 'main/images/gallery-img11.png' %}" data-lightbox="example-set" data-title="Click the right half of the image to move forward.">
+					<img src="{% static 'main/images/gallery-img11.png' %}" alt="gallery-images">
+				</a>
+			</div>
+			<div class="gallery-img-wrap">
+				<a href="{% static 'main/images/gallery-img12.png' %}" data-lightbox="example-set" data-title="Click the right half of the image to move forward.">
+					<img src="{% static 'main/images/gallery-img12.png' %}" alt="gallery-images">
+				</a>
+			</div>
+		</section>
+		<!-- End of gallery Images -->
+		<section class="page-heading">
+			<div class="container">
+				<h2>upcomming events</h2>
+			</div>
+		</section>
+		<section class="events-section" itemprop="event" itemscope itemtype=" http://schema.org/Event">
+			<div class="container">
+				<div class="event-wrap">
+					<div class="img-wrap" itemprop="image">
+						<img src="{% static 'main/images/events.png' %}" alt="event images">
+					</div>
+					<div class="details">
+						<a href=""><h3 itemprop="name">Meghalaya Tour.</h3></a>
+						<p itemprop="description">Meghalaya tour in January, 2023. Book your pack now. Book your pack now. Book your pack now. Book your pack now.</p>
+
+						<h5 itemprop="startDate"><i class="far fa-clock"></i> Jan 1,2023 | 11am</h5>
+						<h5 itemprop="location"><i class="fas fa-map-marker-alt"></i> Meghalaya, India</h5>
+					</div>
+				</div>
+
+				<div class="event-wrap">
+					<div class="img-wrap" itemprop="image">
+						<img src="{% static 'main/images/events.png' %}" alt="event images">
+					</div>
+					<div class="details">
+						<a href=""><h3 itemprop="name">Meghalaya Tour.</h3></a>
+						<p itemprop="description">Meghalaya tour in January, 2023. Book your pack now. Book your pack now. Book your pack now. Book your pack now.</p>
+
+						<h5 itemprop="startDate"><i class="far fa-clock"></i> Jan 1,2023 | 11am</h5>
+						<h5 itemprop="location"><i class="fas fa-map-marker-alt"></i> Meghalaya, India</h5>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End of Events section -->
+		<section class="what-other-say">
+			<!-- <div class="container">
+				<div class="wrap-others-say" itemprop="review" itemscope itemtype="http://schema.org/ReviewAction">
+					<h1>what other say about us</h1>
+					<div id="carousel" class="flexslider">
+						<ul class="slides">
+							<li class="img-wrap">
+								<figure itemprop="image">
+									<img src="images/review-big-img.jpg" alt="Person Image">
+									<figcaption class="hidden">
+										<h3>Sagar Sapkota</h3>
+										<h4>UI Designer</h4>
+									</figcaption>
+								</figure>
+							</li>
+							<li class="img-wrap">
+								<figure itemprop="image">
+									<img src="images/review-big-img.jpg" alt="Person Image">
+									<figcaption class="hidden">
+										<h3>Sagar Sapkota</h3>
+										<h4>UI Designer</h4>
+									</figcaption>
+								</figure>
+							</li>
+							<li class="img-wrap">
+								<figure itemprop="image">
+									<img src="images/review-big-img.jpg" alt="Person Image">
+									<figcaption class="hidden">
+										<h3>Sagar Sapkota</h3>
+										<h4>UI Designer</h4>
+									</figcaption>
+								</figure>
+							</li>
+							<li class="img-wrap">
+								<figure itemprop="image">
+									<img src="images/review-big-img.jpg" alt="Person Image">
+									<figcaption class="hidden">
+										<h3>Sagar Sapkota</h3>
+										<h4>UI Designer</h4>
+									</figcaption>
+								</figure>
+							</li>
+							<li class="img-wrap">
+								<figure itemprop="image">
+									<img src="images/review-big-img.jpg" alt="Person Image">
+									<figcaption class="hidden">
+										<h3>Sagar Sapkota</h3>
+										<h4>UI Designer</h4>
+									</figcaption>
+								</figure>
+							</li>
+							<li class="img-wrap">
+								<figure itemprop="image">
+									<img src="images/review-big-img.jpg" alt="Person Image">
+									<figcaption class="hidden">
+										<h3>Sagar Sapkota</h3>
+										<h4>UI Designer</h4>
+									</figcaption>
+								</figure>
+							</li>
+							<li class="img-wrap">
+								<figure itemprop="image">
+									<img src="images/review-big-img.jpg" alt="Person Image">
+									<figcaption class="hidden">
+										<h3>Sagar Sapkota</h3>
+										<h4>UI Designer</h4>
+									</figcaption>
+								</figure>
+							</li>
+							<li class="img-wrap">
+								<figure itemprop="image">
+									<img src="images/review-big-img.jpg" alt="Person Image">
+									<figcaption class="fig">
+										<h3 class="hidden">Sagar Sapkota</h3>
+										<h4 class="hidden">UI Designer</h4>
+									</figcaption>
+								</figure>
+							</li>
+						</ul>
+					</div>
+
+					<div id="slider" class="flexslider">
+	  					<ul class="slides">
+						    <li>
+						    	<div class="testimonial-holder" itemprop="description">
+						    		<strong class="title">Amazing service and amazing team. Thank you!</strong>
+						    		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tristique fer-<br/>mentum mauris, non tincidunt arcu venenatis vel. Nam et vehicula turpis. Ut nunc purus, mattis eu odio a, egestas facilisis nibh. Mauris magna diam, iaculis vitae sapien non, pharetra congue purus. Phasellus in odio purus.</p>
+						    		<div class="rateYo"></div>
+						    	</div>
+						    </li>
+						    <li>
+						    	<div class="testimonial-holder" itemprop="description">
+						    		<strong class="title">Very Satisfaied with their service</strong>
+						    		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tristique fer-<br/>mentum mauris, non tincidunt arcu venenatis vel. Nam et vehicula turpis. Ut nunc purus, mattis eu odio a, egestas facilisis nibh. Mauris magna diam, iaculis vitae sapien non, pharetra congue purus. Phasellus in odio purus.</p>
+						    		<div class="rateYo"></div>
+						    	</div>
+						    </li>
+						    <li>
+						    	<div class="testimonial-holder" itemprop="description">
+						    		<strong class="title">Quick, efficient and meets your expectations</strong>
+						    		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tristique fer-<br/>mentum mauris, non tincidunt arcu venenatis vel. Nam et vehicula turpis. Ut nunc purus, mattis eu odio a, egestas facilisis nibh. Mauris magna diam, iaculis vitae sapien non, pharetra congue purus. Phasellus in odio purus.</p>
+						    		<div class="rateYo"></div>
+						    	</div>
+						    </li>
+						    <li>
+						    	<div class="testimonial-holder" itemprop="description">
+						    		<strong class="title">The website was according our imagination</strong>
+						    		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tristique fer-<br/>mentum mauris, non tincidunt arcu venenatis vel. Nam et vehicula turpis. Ut nunc purus, mattis eu odio a, egestas facilisis nibh. Mauris magna diam, iaculis vitae sapien non, pharetra congue purus. Phasellus in odio purus.</p>
+						    		<div class="rateYo"></div>
+						    	</div>
+						    </li>
+						    <li>
+						    	<div class="testimonial-holder" itemprop="description">
+						    		<strong class="title">Amazing service and amazing team. Thank you!</strong>
+						    		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tristique fer-<br/>mentum mauris, non tincidunt arcu venenatis vel. Nam et vehicula turpis. Ut nunc purus, mattis eu odio a, egestas facilisis nibh. Mauris magna diam, iaculis vitae sapien non, pharetra congue purus. Phasellus in odio purus.</p>
+						    		<div class="rateYo"></div>
+						    	</div>
+						    </li>
+						    <li>
+						    	<div class="testimonial-holder" itemprop="description">
+						    		<strong class="title">Very Satisfaied with their service</strong>
+						    		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tristique fer-<br/>mentum mauris, non tincidunt arcu venenatis vel. Nam et vehicula turpis. Ut nunc purus, mattis eu odio a, egestas facilisis nibh. Mauris magna diam, iaculis vitae sapien non, pharetra congue purus. Phasellus in odio purus.</p>
+						    		<div class="rateYo"></div>
+						    	</div>
+						    </li>
+						    <li>
+						    	<div class="testimonial-holder" itemprop="description">
+						    		<strong class="title">Quick, efficient and meets your expectations</strong>
+						    		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tristique fer-<br/>mentum mauris, non tincidunt arcu venenatis vel. Nam et vehicula turpis. Ut nunc purus, mattis eu odio a, egestas facilisis nibh. Mauris magna diam, iaculis vitae sapien non, pharetra congue purus. Phasellus in odio purus.</p>
+						    		<div class="rateYo"></div>
+						    	</div>
+						    </li>
+						    <li>
+						    	<div class="testimonial-holder" itemprop="description">
+						    		<strong class="title">The website was according our imagination</strong>
+						    		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tristique fer-<br/>mentum mauris, non tincidunt arcu venenatis vel. Nam et vehicula turpis. Ut nunc purus, mattis eu odio a, egestas facilisis nibh. Mauris magna diam, iaculis vitae sapien non, pharetra congue purus. Phasellus in odio purus.</p>
+						    		<div class="rateYo"></div>
+						    	</div>
+						    </li>
+	  					</ul>
+					</div>
+				</div>
+			</div> -->
+			<div class="container">
+				<h4 class="article-subtitle">Get to Know</h4>
+				<h2 class="head">what our customer say</h2>
+				<div class="three owl-carousel owl-theme">
+					<div class="customer-item" itemscope itemtype="http://schema.org/Rating">
+						<div class="border">
+							<div class="customer">
+								<figure>
+									<img class="customer-img" src="{% static 'main/images/customer-img.jpg' %}" alt="Person image">
+									<figcaption>
+										<span itemprop="author">SAGAR KUMAR SAPKOTA</span>
+										<div class="rateYo" itemprop="ratingValue"></div>
+									</figcaption>
+								</figure>
+							</div>
+							<div class="customer-review">
+								<p itemprop="description">
+									"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+									tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+									consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+									cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non"
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="customer-item" itemscope itemtype="http://schema.org/Rating">
+						<div class="border">
+							<div class="customer">
+								<figure>
+									<img class="customer-img" src="{% static 'main/images/customer-img.jpg' %}" alt="Person image">
+									<figcaption>
+										<span itemprop="author">SAGAR KUMAR SAPKOTA</span>
+										<div class="rateYo" itemprop="ratingValue"></div>
+									</figcaption>
+								</figure>
+							</div>
+							<div class="customer-review">
+								<p itemprop="description">
+									"22222Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+									tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+									consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+									cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non"
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End of Others talk -->
+
+		<section class="page-heading">
+			<div class="container">
+				<h2>latest news</h2>
+			</div>
+		</section>
+		<section class="latest-news">
+			<div class="container" itemprop="event" itemscope itemtype=" http://schema.org/Event">
+				<div class="owl-two owl-carousel">
+					<div class="news-wrap" itemprop="event">
+						<div class="news-img-wrap" itemprop="image">
+							<img src="{% static 'main/images/indian-visa-news.png' %}" alt="Latest News Images">
+						</div>
+						<div class="news-detail" itemprop="description">
+							<a href=""><h1>Indian tourist visa opens in June.</h1></a>
+							<h2 itemprop="startDate">By Admin | 20 Feb. 2022</h2>
+
+							<p>Indian tourist visa opens in June 06, 2022 after a seven months period. With grants from the embassy, tourists can travel in West Bengal, Maharashtra, Uttarakhand and Punjab with a few more province. Application for visa will start from May 01, 2022 through online and offline applications.</p>
+						</div>
+					</div>
+
+					<div class="news-wrap" itemprop="event">
+						<div class="news-img-wrap" itemprop="image">
+							<img src="{% static 'main/images/hill-tract-news.png' %}" alt="Latest News Images">
+						</div>
+						<div class="news-detail" itemprop="description">
+							<a href=""><h1>Political tension in CHT: What travellers need to know.</h1></a>
+							<h2 itemprop="startDate">By Admin | 20 Dec. 2018</h2>
+
+							<p>The hill areas of Chittagong division has a complex geopolitical condition since the British colonial period. Recently after death of a military officer in Bandarban has revisited the political conflicts between the Government and reformist groups in the remote hill tracts once again...</p>
+						</div>
+					</div>
+
+					<div class="news-wrap" itemprop="event">
+						<div class="news-img-wrap" itemprop="image">
+							<img src="{% static 'main/images/indian-visa-news.png' %}" alt="Latest News Images">
+						</div>
+						<div class="news-detail" itemprop="description">
+							<a href=""><h1>Indian tourist visa opens in June.</h1></a>
+							<h2 itemprop="startDate">By Admin | 20 Feb. 2022</h2>
+
+							<p>Indian tourist visa opens in June 06, 2022 after a seven months period. With grants from the embassy, tourists can travel in West Bengal, Maharashtra, Uttarakhand and Punjab with a few more province. Application for visa will start from May 01, 2022 through online and offline applications.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Latest News CLosed -->
+		<section class="whyUs-section">
+			<div class="container">
+				<div class="featured-points">
+					<ul>
+						<li><i class="fas fa-book"></i> easy booking</li>
+						<li><i class="fas fa-money-check-alt"></i> affordable fees</li>
+						<li><i class="fas fa-chalkboard-teacher"></i> expert guides</li>
+						<li> <i class="fas fa-book"></i> wildlife reservation policies</li>
+					</ul>
+				</div>
+				<div class="whyus-wrap">
+					<h1>why us?</h1>
+					<p itemprop="description">Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsumLorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsumLorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsumLorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsumLorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsumLorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum</p>
+
+					<a href="#" class="read-more-btn">read more</a>
+				</div>
+			</div>
+		</section>
+		<!-- Closed WhyUs section -->
+		<section class="query-section">
+			<div class="container">
+				<p>Any Queries? Ask us a question at<a href="tel:+8801686614624"><i class="fas fa-phone"></i> +88 01686614624</a></p>
+			</div>
+		</section>
+		<!-- End of Query Section -->
+		<footer class="page-footer" itemprop="footer" itemscope itemtype="http://schema.org/WPFooter">
+			<div class="footer-first-section">
+				<div class="container">
+					<div class="box-wrap" itemprop="about">
+						<header>
+							<h1>about</h1>
+						</header>
+						<p>Bon Voyage is an expert travel guide agency who organizes and manages your travels in a way never happened before. Travelling with us will find you new experience, friends and peace that lasts forever.</p>
+
+						<h4><a href="tel:+8801686614624"><i class="fas fa-phone"></i> +88 01686614624</a></h4>
+						<h4><a href="mailto:info@educationpro.com"><i class="fas fa-envelope"></i> info@bonvoyage.com</a></h4>
+						<h4><a href=""><i class="fas fa-map-marker-alt"></i>Aftabnagar, Dhaka, Bangladesh</a></h4>
+					</div>
+
+					<div class="box-wrap">
+						<header>
+							<h1>links</h1>
+						</header>
+						<ul>
+							<li><a href="#">Guides</a></li>
+							<li><a href="#">Bloggers</a></li>
+							<li><a href="#">Places</a></li>
+							<li><a href="#">Services</a></li>
+						</ul>
+					</div>
+
+					<div class="box-wrap">
+						<header>
+							<h1>recent events</h1>
+						</header>
+						<div class="recent-course-wrap">
+							<img src="{% static 'main/images/ui-ux.jpg' %}" alt="sundarbans-mangrove">
+							<a href=""><div class="course-name">
+								<h3>Explore Sundarbans</h3>
+								<p><span>12000 BDT</span> 9999 BDT</p>
+							</div></a>
+						</div>
+						<div class="recent-course-wrap">
+							<img src="{% static 'main/images/ui-ux.jpg' %}" alt="Cox's-Bazar">
+							<a href=""><div class="course-name">
+								<h3>Weekend in Cox's Bazar</h3>
+								<p><span>9000 BDT</span> 7000 BDT</p>
+							</div></a>
+						</div>
+					</div>
+
+					<div class="box-wrap">
+						<header>
+							<h1>quick contact</h1>
+						</header>
+						<section class="quick-contact">
+							<input type="email" name="email" placeholder="Your Email*">
+							<textarea placeholder="Type your message*"></textarea>
+							<button>send message</button>
+						</section>
+					</div>
+				</div>
+			</div>
+			<!-- End of box-Wrap -->
+			<div class="footer-second-section">
+				<div class="container">
+					<hr class="footer-line">
+					<ul class="social-list">
+						<li><a href=""><i class="fab fa-facebook-square"></i></a></li>
+						<li><a href=""><i class="fab fa-twitter"></i></a></li>
+						<li><a href=""><i class="fab fa-skype"></i></a></li>
+						<li><a href=""><i class="fab fa-youtube"></i></a></li>
+						<li><a href=""><i class="fab fa-instagram"></i></a></li>
+					</ul>
+					<hr class="footer-line">
+				</div>
+			</div>
+			<div class="footer-last-section">
+				<div class="container">
+					<p>Copyright 2022 &copy; bonvoyage.com <span> | </span> We believe in freedom</p>
+				</div>
+			</div>
+		</footer>
+
+		<!-- <nav id="menu">
+			<ul>
+				<li><a href="#">HOME</a></li>
+				<li>
+					<span>COURSES</span>
+					<ul>
+						<li><a href="#/courses/child">Child</a></li>
+						<li><a href="#/courses/child">Child</a></li>
+						<li>
+							<span>Child</span>
+							<ul>
+								<li><a href="#/courses/child/grandChild">Grand Child</a></li>
+								<li><a href="#/courses/child/grandChild">Grand Child</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">gallery</a>
+					<ul>
+						<li><a href="#">Child</a></li>
+						<li><a href="#">Child</a></li>
+						<li><a href="#">Child</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">news</a>
+					<ul>
+						<li><a href="#">Child</a></li>
+						<li><a href="#">Child</a></li>
+						<li><a href="#">Child</a></li>
+					</ul>
+				</li>
+				<li><a href="#">about</a></li>
+				<li><a href="#">contact</a></li>
+			</ul>
+		</nav> -->
+
+	</div>
+	<script type="text/javascript" src="{% static 'main/js/jquery-3.3.1.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'main/js/lightbox.js' %}"></script>
+	<script type="text/javascript" src="{% static 'main/js/all.js' %}"></script>
+	<script type="text/javascript" src="{% static 'main/js/isotope.pkgd.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'main/js/owl.carousel.js' %}"></script>
+	<script type="text/javascript" src="{% static 'main/js/jquery.flexslider.js' %}"></script>
+	<script type="text/javascript" src="{% static 'main/js/jquery.rateyo.js' %}"></script>
+	<!-- <script type="text/javascript" src="js/jquery.mmenu.all.js"></script> -->
+	<!-- <script type="text/javascript" src="js/jquery.meanmenu.min.js"></script> -->
+	<script type="text/javascript" src="{% static 'main/js/custom.js' %}"></script>
+</body>
+</html>
