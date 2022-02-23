@@ -20,7 +20,7 @@ from django.contrib.auth import authenticate, login, logout
 
 
 def send_activation_email(user, request):
-    current_site = get_current_site(request)
+    current_site = get_current_site(request).domain
     email_subject = 'Activate your account'
     email_body = render_to_string('accounts/activate.html', {
         'user': user,
@@ -70,7 +70,7 @@ def signup_view(request):
             context['has_error'] = True
 
         if context['has_error']:
-            return render(request, 'accounts/signup.html', context)
+            return render(request, 'signup.html', context)
 
         user = User.objects.create_user(username=username, email=email, first_name=first_name, last_name=last_name)
         user.set_password(password)
@@ -81,7 +81,7 @@ def signup_view(request):
         messages.add_message(request, messages.ERROR, 'You can login now')
         return redirect('../login/')
 
-    return render(request, 'accounts/signup.html')
+    return render(request, 'signup.html')
 
 
 def login_view(request):
@@ -95,7 +95,7 @@ def login_view(request):
         if user and not user.is_email_verified:
             messages.add_message(request, messages.ERROR,
                                  'Email is not verified, please check your email inbox')
-            return render(request, 'accounts/login.html', context, status=401)
+            return render(request, 'login.html', context, status=401)
 
         if form.is_valid():
             user = form.get_user()
@@ -103,19 +103,19 @@ def login_view(request):
             if 'next' in request.POST:
                 return redirect(request.POST.get("next"))
             else:
-                return redirect('articles:list')
+                return redirect('main:base_template')
         else:
             messages.info(request, 'Username or Password is incorrect')
 
     else:
         form = AuthenticationForm()
-    return render(request, 'accounts/login.html', {'form': form})
+    return render(request, 'login.html', {'form': form})
 
 
 def logout_view(request):
     if request.method == 'POST':
         logout(request)
-        return redirect('articles:list')
+        return redirect('main:base_template')
 
 
 def activate_user(request, uidb64, token):
@@ -133,6 +133,6 @@ def activate_user(request, uidb64, token):
 
         messages.add_message(request, messages.SUCCESS,
                              'Email verified, you can now login')
-        return render(request, 'accounts/login.html')
+        return render(request, 'login.html')
 
-    return render(request, 'accounts/activationfailed.html', {"user": user})
+    return render(request, 'activationfailed.html', {"user": user})
