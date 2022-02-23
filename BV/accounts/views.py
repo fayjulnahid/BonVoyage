@@ -115,7 +115,7 @@ def login_view(request):
 def logout_view(request):
     if request.method == 'POST':
         logout(request)
-        return redirect('main:base_template')
+        return redirect('accounts:login')
 
 
 def activate_user(request, uidb64, token):
@@ -134,5 +134,4 @@ def activate_user(request, uidb64, token):
         messages.add_message(request, messages.SUCCESS,
                              'Email verified, you can now login')
         return render(request, 'login.html')
-
     return render(request, 'activationfailed.html', {"user": user})

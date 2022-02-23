@@ -46,8 +46,13 @@
 							</ul>
 						</div>
 						<div class="login-block">
-							<a href="">Login /</a>
-							<a href="">Register</a>
+							<a href="/accounts/login">Login /</a>
+							<a href="/accounts/signup">Register</a>
+							<a><form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+                                        {% csrf_token %}
+                            <button type="submit" class="cr-btn cr-btn-sm">Logout</button>
+                            </form>
+                            </a>
 						</div>
 					</div>
 				</div>
