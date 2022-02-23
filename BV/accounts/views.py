@@ -22,7 +22,7 @@ from django.contrib.auth import authenticate, login, logout
 def send_activation_email(user, request):
     current_site = get_current_site(request).domain
     email_subject = 'Activate your account'
-    email_body = render_to_string('accounts/activate.html', {
+    email_body = render_to_string('activate.html', {
         'user': user,
         'domain': current_site,
         'uid': urlsafe_base64_encode(force_bytes(user.pk)),
