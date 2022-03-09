@@ -14,7 +14,7 @@ from .utils import generate_token
 from django.core.mail import EmailMessage
 from django.conf import settings
 from django.contrib.auth import authenticate, login, logout
-
+from main import *
 
 # Create your views here.
 
@@ -99,6 +99,7 @@ def login_view(request):
 
         if form.is_valid():
             user = form.get_user()
+
             login(request, user)
             if 'next' in request.POST:
                 return redirect(request.POST.get("next"))
@@ -115,7 +116,7 @@ def login_view(request):
 def logout_view(request):
     if request.method == 'POST':
         logout(request)
-        return redirect('accounts:login')
+        return redirect('/')
 
 
 def activate_user(request, uidb64, token):
