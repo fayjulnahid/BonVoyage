@@ -20,6 +20,8 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 
+
+
 urlpatterns = [
     path('',include('main.urls')),
     url(r'^accounts/', include('accounts.urls')),
@@ -31,4 +33,5 @@ urlpatterns = [
     path('reset_password_complete/',
          auth_views.PasswordResetCompleteView.as_view(template_name="password_reset_complete.html"),
          name="password_reset_complete"),
+    url(r'^events/', include('events.urls')),
 ]
