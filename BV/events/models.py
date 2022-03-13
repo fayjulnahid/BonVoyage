@@ -41,5 +41,5 @@ class Enrollment(models.Model):
     adult = models.IntegerField(default=1)
     child = models.IntegerField(default=0)
 
-    def __str__(self):
+    def __int__(self):
         return self.enrollment_no
