@@ -6,6 +6,6 @@ from . import views
 app_name = 'events'
 
 urlpatterns = [
-    url(r'^all_events/$', views.hi, name="Events"),
+    url(r'^events/$', views.all_events, name="Events"),
     #url(r'^Enroll/', views.login_view, name="Enroll"),
 ]

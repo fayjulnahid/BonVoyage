@@ -156,63 +156,21 @@
 			<div class="container">
 				<div class="courses">
 					<div class="owl-one owl-carousel">
+						{% for Event in events_list %}
 						<div class="box-wrap" itemprop="event" itemscope itemtype=" http://schema.org/Course">
 							<div class="img-wrap" itemprop="image"><img src="{% static 'main/images/saint-pic.png' %}" alt="courses picture"></div>
-								<a href="#" class="learn-desining-banner" itemprop="name">Saint Martin Relax Trip >>></a>
+								<a href="#" class="learn-desining-banner" itemprop="name">{{Event.name}} >>></a>
 							<div class="box-body" itemprop="description">
-								<p>Witness the surreal beauty of Bangladesh's only coral island Saint Martin.
-									This trip includes sleeper coach to reach Teknaf from Dhaka and vice versa. With the best available accommodation,
-								food and recreation available in the island, make your weekend the best with Sea, Beach, Gulls and Nature.</p>
+								<p>{{Event.description}}</p>
 								<section itemprop="time">
-									<p><span>Date:</span> 02 June, 2022</p>
-									<p><span>Duration:</span> 3 Days, 4 Nights</p>
-									<p><span>Transport:</span> Sleeper-Coach / Ship</p>
-									<p><span>Fee:</span> 10,000.00 BDT</p>
+									<p><span>Date:</span>{{Event.date}}</p>
+									<p><span>Duration:</span> {{Event.duration_day}} Days, {{Event.duration_night}} Nights</p>
+									<p><span>Transport:</span> {% for transport in Event.transport.all %}{{transport}}, {% endfor %}</p>
+									<p><span>Fee:</span> {{Event.price}}</p>
 								</section>
 							</div>
 						</div>
-
-						<div class="box-wrap" itemprop="event" itemscope itemtype=" http://schema.org/Course">
-							<div class="img-wrap"  itemprop="image"><img src="{% static 'main/images/sylhet-pic.png' %}" alt="courses picture"></div>
-								<a href="#" class="learn-desining-banner" itemprop="name">Sylhet Trip >>></a>
-							<div class="box-body" itemprop="description">
-								<p>Enjoy the best of Sylhet with our expert guide. You will find rivers, hills and jungles blooming with beautiful flora. Get comprehensive knowledge on the geography of Varinda plateau.</p>
-								<section itemprop="time">
-									<p><span>Date:</span> 02 May, 2022</p>
-									<p><span>Duration:</span> 2 Days, 3 Nights</p>
-									<p><span>Transport:</span> Bus, Chander Gari</p>
-									<p><span>Fee:</span> 8,000.00 BDT</p>
-								</section>
-							</div>
-						</div>
-
-						<div class="box-wrap" itemprop="event" itemscope itemtype=" http://schema.org/Course">
-							<div class="img-wrap"  itemprop="image"><img src="{% static 'main/images/nafakhum-pic.png' %}" alt="courses picture"></div>
-								<a href="#" class="learn-desining-banner" itemprop="name">Bandarban Wild Trekking >>></a>
-							<div class="box-body" itemprop="description">
-								<p>Get yourself lost in the wilderness of the Bandarban hill tracts. Find spiritual satisfaction by witnessing the coexistence of nature, people and wildlife and learn about the primitive lifestyle of indigenous people of Bangladesh.</p>
-								<section itemprop="time">
-									<p><span>Date:</span> 02 April, 2022</p>
-									<p><span>Duration:</span> 5 Days, 6 Nights</p>
-									<p><span>Transport:</span> Bus, Chander Gari, Speed-Boat</p>
-									<p><span>Fee:</span> 12,000.00 BDT</p>
-								</section>
-							</div>
-						</div>
-
-						<div class="box-wrap" itemprop="event" itemscope itemtype=" http://schema.org/Course">
-							<div class="img-wrap"  itemprop="image"><img src="{% static 'main/images/kuakata-pic.png' %}" alt="courses picture"></div>
-								<a href="#" class="learn-desining-banner" itemprop="name">Kuakata Beach Luxury >>></a>
-							<div class="box-body" itemprop="description">
-								<p>Watch the sunrise and sunset in one of the most beautiful beaches, in BD, Kuakata also known as Shagarkanya this weekend. Stay in luxury hotel...</p>
-								<section itemprop="time">
-									<p><span>Date:</span> 02 March, 2022</p>
-									<p><span>Duration:</span> 3 Days, 4 Nights</p>
-									<p><span>Transport:</span> Luxury Ship</p>
-									<p><span>Fee:</span> 5,00,000 BDT</p>
-								</section>
-							</div>
-						</div>
+						{% endfor %}
 					</div>
 				</div>
 			</div>
