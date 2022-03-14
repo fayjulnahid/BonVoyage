@@ -20,6 +20,7 @@ class Transport(models.Model):
 class Event(models.Model):
     event_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=220)
+    slug = models.SlugField(max_length=120, default='event-slug')
     date = models.DateTimeField()
     price = models.FloatField(max_length=None, editable=True, default=0.0)
     manager = models.ForeignKey(settings.AUTH_USER_MODEL, blank=False, null=False, on_delete=models.CASCADE)
