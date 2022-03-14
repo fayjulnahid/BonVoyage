@@ -77,14 +77,14 @@
 								<li><a href="#">Home</a></li>
 								<li class="menu-parent">Events
 									<ul class="sub-menu">
-										<li><a href="#">Popular</a></li>
-										<li><a href="#">Ongoing</a></li>
+										<li><a href="/events/">Popular</a></li>
+										<!--<li><a href="#">Ongoing</a></li>
 										<li class="menu-parent">Others
 											<ul class="sub-menu">
 												<li><a href="">Local</a></li>
 												<li><a href="">International</a></li>
 											</ul>
-										</li>
+										</li>-->
 									</ul>
 								</li>
 								<li class="menu-parent">News
@@ -158,7 +158,7 @@
 					<div class="owl-one owl-carousel">
 						{% for Event in events_list %}
 						<div class="box-wrap" itemprop="event" itemscope itemtype=" http://schema.org/Course">
-							<div class="img-wrap" itemprop="image"><img src="{% static 'main/images/saint-pic.png' %}" alt="courses picture"></div>
+							<div class="img-wrap" itemprop="image"><img src="/media/{{Event.event_img}}" alt="courses picture"></div>
 								<a href="#" class="learn-desining-banner" itemprop="name">{{Event.name}} >>></a>
 							<div class="box-body" itemprop="description">
 								<p>{{Event.description}}</p>
