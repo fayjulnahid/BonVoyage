@@ -9,5 +9,5 @@ def hi(request):
 
 def all_events(request):
     events_list = Event.objects.all()
-    return render(request, 'course-listing.html', {'events_list': events_list})
+    return render(request, 'events.html', {'events_list': events_list})
 
