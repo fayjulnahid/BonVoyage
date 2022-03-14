@@ -114,7 +114,6 @@ AUTHENTICATION_BACKENDS = [
 
     'django.contrib.auth.backends.ModelBackend',
 ]
-
 SOCIAL_AUTH_FACEBOOK_KEY = '599690491194853'
 SOCIAL_AUTH_FACEBOOK_SECRET = '7b52a01483057522ec2eb7d19812eadb'
 
@@ -166,5 +165,9 @@ EMAIL_HOST_USER = 'fayjulnahid2420@gmail.com'
 EMAIL_HOST_PASSWORD = 'yindqmcfkyktixtm'
 EMAIL_USE_TLS = True
 
+ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
+def location(f):
+    return os.path.join(ROOT_DIR, f)
+
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = location('media/')
