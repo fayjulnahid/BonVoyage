@@ -2433,11 +2433,26 @@ aside .news-letter hr {
 	margin-top: 0;
 }
 
+#course-page-copy .container {
+    display: flex;
+	padding-top: 5em;
+	padding-bottom: 0em;
+	margin-top: 0;
+}
+
 #course-page .course-detail {
 	width: 77rem;
 }
+#course-page-copy .course-detail-copy {
+	width: 38.5rem;
+}
 
 #course-page .course-detail h2 {
+	/*font-size: 3rem;*/
+	/*color: #000;*/
+	text-transform: uppercase;
+}
+#course-page-copy .course-detail-copy h2 {
 	/*font-size: 3rem;*/
 	/*color: #000;*/
 	text-transform: uppercase;
@@ -2448,18 +2463,35 @@ aside .news-letter hr {
 	flex-flow: row wrap;
 	margin-top: 2.25em;
 }
+#course-page-copy .course-detail-copy header {
+	display: flex;
+	justify-content: center;
+	/*flex-flow: row wrap;*/
+	margin-top: 2.25em;
+}
 
 .course-detail .course-box {
 	width: 186px;
 	text-align: center;
 	border-right: 1px solid #adadad;
 }
-
+.course-detail-copy .course-box-copy {
+	width: 186px;
+	text-align: center;
+	border-right: 1px solid #adadad;
+}
 .course-detail .course-box:last-child {
+	border: none;
+}
+.course-detail-copy .course-box-copy:last-child {
 	border: none;
 }
 
 .course-detail .course-box i {
+	margin-bottom: 1.6rem;
+	/*color: #1c3961;*/
+}
+.course-detail-copy .course-box-copy i {
 	margin-bottom: 1.6rem;
 	/*color: #1c3961;*/
 }
@@ -2474,6 +2506,11 @@ aside .news-letter hr {
 	text-transform: capitalize;
 	/*color: #1c3961;*/
 }
+.course-detail-copy .course-box-copy h3 {
+	font-size: 1.6rem;
+	text-transform: capitalize;
+	color: #1c3961;
+}
 
 .course-detail .course-box button {
 	/*background: #1c3961;*/
@@ -2484,6 +2521,17 @@ aside .news-letter hr {
 	text-transform: capitalize;
 	margin-top: 1em;
 	/*font-family: 'Raleway', sans-serif;	*/
+	cursor: pointer;
+}
+.course-detail-copy .course-box-copy button {
+	background: #1c3961;
+	color: #fff;
+	font-size: 1.6rem;
+	padding: 0.875em 2em;
+	border: none;
+	text-transform: capitalize;
+	margin-top: 1em;
+	font-family: 'Raleway', sans-serif;
 	cursor: pointer;
 }
 
