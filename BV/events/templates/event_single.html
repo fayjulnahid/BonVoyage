@@ -2,7 +2,7 @@
 {% load static %}
 <html>
 <head>
-	<title>education</title>
+	<title>{{event.name}}</title>
 	<meta name="viewport" content="width=device-width">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="{% static 'events/css/all.css' %}">
@@ -17,6 +17,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'events/style.css' %}">
 </head>
 <body>
+<!-- <body class="full-width"> -->
 	<div id="page" class="site">
 		<header class="site-header">
 			<div class="top-header">
@@ -70,7 +71,7 @@
 								<li><a href="/">Home</a></li>
 								<li class="menu-parent">Events
 									<ul class="sub-menu">
-										<li><a href="/events/">Popular</a></li>
+										<li><a href="/events">Popular</a></li>
 										<!--<li><a href="#">Child</a></li>
 										<li class="menu-parent">Child
 											<ul class="sub-menu">
@@ -102,65 +103,204 @@
 			</div>
 		</header>
 		<!-- Header Close -->
-		<!--<div class="banner">
-			<div class="owl-four owl-carousel">
-				<img src="{% static 'events/images/page-banner.png' %}" alt="Image of Bannner">
-				<img src="{% static 'events/images/page-banner2.png' %}" alt="Image of Bannner">
-				<img src="{% static 'events/images/page-banner3.png' %}" alt="Image of Bannner">
-			</div>
+		<section class="page-content" id="course-page">
 			<div class="container">
-				<h1>welcome to education pro</h1>
-				<h3>With our advance search feature you can now find the trips for you...</h3>
-			</div>
-			 <div id="owl-four-nav" class="owl-nav"></div>
-		</div>-->
-		<!-- <div class="banner">
-			<div class="owl-five owl-carousel owl-theme">
-	            <div class="item-video">
-            		<iframe width="100%" height="450" src="https://www.youtube.com/embed/ENVW3uZ3a-4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-            		</iframe>
-	            </div>
-	            <div class="item-video">
-	            	<iframe width="100%" height="450" src="https://www.youtube.com/embed/0bfk90rWV9U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	            </div>
-	            <div class="item-video">
-	            	<iframe width="100%" height="450" src="https://www.youtube.com/embed/ktvTqknDobU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	            </div>
-	            <div class="item-video">
-            		<iframe width="100%" height="450" src="https://www.youtube.com/embed/ENVW3uZ3a-4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-            		</iframe>
-	            </div>
-	            <div class="item-video">
-	            	<iframe width="100%" height="450" src="https://www.youtube.com/embed/0bfk90rWV9U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	            </div>
-	            <div class="item-video">
-	            	<iframe width="100%" height="450" src="https://www.youtube.com/embed/ktvTqknDobU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	            </div>
-          </div>
-		</div> -->
-		<!-- Banner Close -->
-		<section class="course-listing-page">
-			<div class="container">
-				<div id="filters" class="button-group">
-					<button class="button" data-filter="*">all</button>
-  					<button class="button" data-filter=".business">business</button>
-  					<button class="button" data-filter=".design">design</button>
-  					<button class="button" data-filter=".development">development</button>
-  					<button class="button" data-filter=".seo">seo</button>
-  					<button class="button" data-filter=".marketing">marketing</button>
-				</div>
+				<main class="course-detail">
+					<h2>{{event.name}}</h2>
+					<header>
+						<div class="course-box">
+							<i class="far fa-clock"></i>
+							<p>{{event.duration_day}} Days, {{event.duration_night}} Nights</p>
+						</div>
 
-				<div class="grid" id="cGrid">
+						<div class="course-box">
+							<i class="fas fa-chalkboard-teacher"></i>
+							<p>{{event.capacity}} Travellers</p>
+						</div>
+
+						<div class="course-box">
+							<i class="fas fa-money-check-alt"></i>
+							<p>BDT {{event.price}}</p>
+							<p>(Fairs Included)</p>
+						</div>
+						<div class="course-box">
+							<i class="fas fa-money-check-alt"></i>
+							<p>{{rating|floatformat:1}}</p>
+							<p>{{reviews}} Reviews</p>
+						</div>
+					</header>
+					<article>
+						<section class="course-intro">
+							<h3>Description</h3>
+
+							<p>{{event.description}}</p>
+						</section>
+
+						<section class="course-objective">
+							<h3>Location</h3>
+							<p>Locations to be travelled but not limited to:</p>
+							<ul>
+								{% for location in event.location.all %}
+								<li>{{location}}</li>
+								{% endfor %}
+							</ul>
+
+							<h3>Date</h3>
+							<ul>
+								<li>{{event.date}}</li>
+								<br>
+								<p>*Organizers may change the date under unavoidable circumstances with one-week prior notice.</p>
+							</ul>
+							<h3>Who can apply for this Event?</h3>
+							<ul>
+								<li>18 years or older</li>
+								<li>Children with grants from legal guardian</li>
+								<li>Bangladeshi as nationality</li>
+							</ul>
+
+							<h3>Inclusions</h3>
+							<ul>
+								<li>Meals for Breakfast, Lunch and Dinner</li>
+								<li>Snacks twice a day</li>
+								<li>Accommodation suitable for solo, duo or groups</li>
+								<li>Modes of personal and all-in recreation</li>
+								<li>Two always-on-service crew-mates</li>
+								<li>One expert guide and manager</li>
+							</ul>
+							<h3>Manager's Advice</h3>
+							<ul>
+								<li>Bring your own cloths, brush and towels</li>
+								<li>Bring your own earphone, charger if needed</li>
+								<li>The less plastic you use, the less impact you leave on the nature</li>
+								<li>Do not leave the crew for long without reporting to the manager</li>
+								<li>Do not bring loud speakers</li>
+								<li>Drugs, alcohol and tobacco are demotivated</li>
+								<li>Respect other travellers' personal interest, opinion and space</li>
+							</ul>
+						</section>
+					</article>					
+				</main>
+				<aside>
+					<section class="page-content" id="course-page-copy">
+					<div class="course-box-copy">
+						<main class="course-detail-copy">
+							<header>
+								<div class="course-box-copy">
+									<h3>Enroll</h3>
+									<form action="" method="POST">
+										{% if not enrolled %}
+										{% csrf_token %}
+										<button type="submit" name="next" value="Submit">Proceed</button>
+										{% else %}
+										<button type="button">Enrolled</button>
+										{% endif %}
+									</form>
+								</div>
+								{% if enrolled %}
+								<div class="course-box-copy">
+									<h3>Travel Token</h3>
+									<button type="submit" value="Submit">Download PDF</button>
+								</div>
+								{% endif %}
+							</header>
+						</main>
+					</div>
+					</section>
+					<!-- New Letter Ends -->
+					<div class="recent-post">
+						<h2>trainers</h2>
+						<div class="post">
+							<div class="post-wrap">
+								<div class="img-wrap">
+									<img src="{% static 'events/images/recent-post-img.jpg' %}" alt="Post Images">
+								</div>
+								<div class="post-content">
+									<a href="#">
+										<h3>Bibek Basnet</h3>
+										<p>Web Developer</p>
+									</a>
+									<span>
+										<a href="#"><i class="fab fa-facebook-f"></i></a>
+										<a href="#"><i class="fab fa-instagram"></i></a>
+										<a href="#"><i class="fab fa-twitter"></i></a>
+										<a href="#"><i class="fab fa-linkedin-in"></i></a>
+									</span>
+								</div>
+							</div>
+
+							<div class="post-wrap">
+								<div class="img-wrap">
+									<img src="{% static 'events/images/recent-post-img.jpg' %}" alt="Post Images">
+								</div>
+								<div class="post-content">
+									<a href="#">
+										<h3>Bibek Basnet</h3>
+										<p>Web Developer</p>
+									</a>
+									<span>
+										<a href="#"><i class="fab fa-facebook-f"></i></a>
+										<a href="#"><i class="fab fa-instagram"></i></a>
+										<a href="#"><i class="fab fa-twitter"></i></a>
+										<a href="#"><i class="fab fa-linkedin-in"></i></a>
+									</span>
+								</div>
+							</div>
+
+							<div class="post-wrap">
+								<div class="img-wrap">
+									<img src="{% static 'events/images/recent-post-img.jpg' %}" alt="Post Images">
+								</div>
+								<div class="post-content">
+									<a href="#">
+										<h3>Bibek Basnet</h3>
+										<p>Web Developer</p>
+									</a>
+									<span>
+										<a href="#"><i class="fab fa-facebook-f"></i></a>
+										<a href="#"><i class="fab fa-instagram"></i></a>
+										<a href="#"><i class="fab fa-twitter"></i></a>
+										<a href="#"><i class="fab fa-linkedin-in"></i></a>
+									</span>
+								</div>
+							</div>
+
+							<div class="post-wrap">
+								<div class="img-wrap">
+									<img src="{% static 'events/images/recent-post-img.jpg' %}" alt="Post Images">
+								</div>
+								<div class="post-content">
+									<a href="#">
+										<h3>Bibek Basnet</h3>
+										<p>Web Developer</p>
+									</a>
+									<span>
+										<a href="#"><i class="fab fa-facebook-f"></i></a>
+										<a href="#"><i class="fab fa-instagram"></i></a>
+										<a href="#"><i class="fab fa-twitter"></i></a>
+										<a href="#"><i class="fab fa-linkedin-in"></i></a>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Recent Post Close -->
+				</aside>
+			</div>
+		</section>
+		<section class="recent-course-single">
+			<div class="container">
+				<h2>recent events</h2>
+				<div class="grid">
 					{% for Event in events_list %}
-					<div class="grid-item business" data-category={{Event.category}}>
+					<div class="grid-item" data-category="business">
 						<div class="img-wrap">
 							<img src="/media/{{Event.event_img}}" alt="courses picture">
 						</div>
-						<a href="/events/{{Event.slug}}" class="learn-desining-banner-course">{{Event.name}}</a>
+						<a href="/events/{{Event.slug}}" class="learn-desining-banner-course">{{Event.name}} >>></a>
 						<div class="box-body">
 							<p>{{Event.description}}</p>
 							<section>
-								<p><span>Date:</span> {{Event.date}}</p>
+								<p><span>Date:</span>{{Event.date}}</p>
 								<p><span>Duration:</span> {{Event.duration_day}} Days, {{Event.duration_night}} Nights</p>
 								<p><span>Transport:</span> {% for transport in Event.transport.all %}{{transport}}, {% endfor %}</p>
 								<p><span>Fee:</span> {{Event.price}}</p>
