@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.conf import settings
 
@@ -20,9 +21,11 @@ class Transport(models.Model):
 class Event(models.Model):
     event_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=220)
+    slug = models.SlugField(max_length=120, default='event-slug', unique=True)
     date = models.DateTimeField()
     price = models.FloatField(max_length=None, editable=True, default=0.0)
-    manager = models.ForeignKey(settings.AUTH_USER_MODEL, blank=False, null=False, on_delete=models.CASCADE)
+    manager = models.ForeignKey(settings.AUTH_USER_MODEL, blank=True, null=True, on_delete=models.CASCADE)
+    capacity = models.IntegerField(default=0)
     location = models.ManyToManyField(Location, blank=False)
     duration_day = models.IntegerField(default=1)
     duration_night = models.IntegerField(default=1)
@@ -42,14 +45,46 @@ class Enrollment(models.Model):
     enrollment_no = models.AutoField(primary_key=True)
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
     traveller = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    mobile = models.CharField(max_length=11)
+    mobile = models.CharField(max_length=11, blank=False)
     adult = models.IntegerField(default=1, editable=True)
     child = models.IntegerField(default=0)
     paid = models.BooleanField(default=False, editable=True)
     get_discount = models.FloatField(default=0.0, editable=True)
+    _msg = models.TextField(blank=True)
     status_choice = [('pd', 'pending'), ('bk', 'booked'), ('vs', 'visited')]
     status = models.CharField(max_length=120, choices=status_choice, default='pd', editable=True)
     objects: models.Manager()
 
     def __int__(self):
         return self.enrollment_no
+
+
+class Review(models.Model):
+    op = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    star = models.IntegerField(validators=[MaxValueValidator(5), MinValueValidator(1)], editable=True)
+    body = models.TextField(blank=True, editable=True)
+    date_posted = models.DateTimeField(auto_now_add=True, editable=False)
+
+
+class Comment(models.Model):
+    op = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    # star = models.IntegerField(validators=[MaxValueValidator(5), MinValueValidator(1)], editable=True)
+    body = models.TextField(blank=True, editable=True)
+    date_posted = models.DateTimeField(auto_now_add=True, editable=False)
+
+
+class Vote(models.Model):
+    sub = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    _pointer = models.ForeignKey(Comment, on_delete=models.CASCADE)
+    upvote = models.BooleanField(default=None, editable=True, null=False)
+
+
+class Reply(models.Model):
+    op = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    _pointer = models.ForeignKey(Comment, on_delete=models.CASCADE)
+
+
+class VoteRp(models.Model):
+    sub = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    _pointer = models.ForeignKey(Reply, on_delete=models.CASCADE)
+    upvote = models.BooleanField(default=None, editable=True, null=False)
