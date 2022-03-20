@@ -60,16 +60,10 @@ class Enrollment(models.Model):
 
 
 class Review(models.Model):
-    #pk = models.AutoField(primary_key=True)
     op = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    event = models.ForeignKey(Event, on_delete=models.CASCADE)
     star = models.IntegerField(validators=[MaxValueValidator(5), MinValueValidator(1)], editable=True)
     body = models.TextField(blank=True, editable=True)
     date_posted = models.DateTimeField(auto_now_add=True, editable=False)
-    objects: models.Manager()
-
-    def __int__(self):
-        return self.pk
 
 
 class Comment(models.Model):

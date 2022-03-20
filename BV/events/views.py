@@ -1,7 +1,6 @@
-from django.db.models import Avg
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Event, Enrollment, Review
+from .models import Event, Enrollment
 
 events_list = Event.objects.all()
 
@@ -21,21 +20,14 @@ def enroll(request, event):
 
 
 def event_detail(request, slug=None):
-    event = Event.objects.get(slug=slug)
-    rating = Review.objects.filter(event=event).aggregate(Avg('star'))
-    reviews = Review.objects.filter(event=event).count()
     if not request.user.is_authenticated:
         if slug is not None:
             event = Event.objects.get(slug=slug)
-            if request.method == 'POST':
-                return redirect('/accounts/login/')
-        return render(request, 'event_single.html', {'events_list': events_list, 'event': event, 'slug': slug, 'rating': rating['star__avg'], 'reviews': reviews})
+        return render(request, 'event_single.html', {'event': event, 'slug': slug})
     else:
-
-        enrolled = Enrollment.objects.filter(traveller=request.user, event=Event.objects.get(slug=slug)).exists()
         if slug is not None:
             event = Event.objects.get(slug=slug)
             if request.method == 'POST':
                 enroll(request, event)
-                return redirect('/events/' + event.slug)
-        return render(request, 'event_single.html', {'events_list': events_list, 'event': event, 'slug': slug, 'enrolled': enrolled, 'rating': rating['star__avg'], 'reviews': reviews})
+
+        return render(request, 'event_single.html', {'event': event, 'slug': slug})
