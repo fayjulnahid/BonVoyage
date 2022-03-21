@@ -18,6 +18,11 @@ class Transport(models.Model):
         return self.vehicle
 
 
+class Stuff(models.Model):
+    stuff = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    des = models.CharField(max_length=120, default='Stuff')
+
+
 class Event(models.Model):
     event_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=220)
@@ -25,6 +30,7 @@ class Event(models.Model):
     date = models.DateTimeField()
     price = models.FloatField(max_length=None, editable=True, default=0.0)
     manager = models.ForeignKey(settings.AUTH_USER_MODEL, blank=True, null=True, on_delete=models.CASCADE)
+    stuffs = models.ManyToManyField(Stuff)
     capacity = models.IntegerField(default=0)
     location = models.ManyToManyField(Location, blank=False)
     duration_day = models.IntegerField(default=1)
@@ -61,9 +67,11 @@ class Enrollment(models.Model):
 
 class Review(models.Model):
     op = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
     star = models.IntegerField(validators=[MaxValueValidator(5), MinValueValidator(1)], editable=True)
     body = models.TextField(blank=True, editable=True)
     date_posted = models.DateTimeField(auto_now_add=True, editable=False)
+    objects: models.Manager()
 
 
 class Comment(models.Model):

@@ -2436,6 +2436,7 @@ aside .news-letter hr {
 #course-page-copy .container {
     display: flex;
 	padding-top: 5em;
+
 	padding-bottom: 0em;
 	margin-top: 0;
 }
@@ -2531,6 +2532,7 @@ aside .news-letter hr {
 	border: none;
 	text-transform: capitalize;
 	margin-top: 1em;
+	margin-bottom: 1em;
 	font-family: 'Raleway', sans-serif;
 	cursor: pointer;
 }
