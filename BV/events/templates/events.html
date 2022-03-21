@@ -2,7 +2,7 @@
 {% load static %}
 <html>
 <head>
-	<title>education</title>
+	<title>Events</title>
 	<meta name="viewport" content="width=device-width">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="{% static 'events/css/all.css' %}">
@@ -143,16 +143,16 @@
 			<div class="container">
 				<div id="filters" class="button-group">
 					<button class="button" data-filter="*">all</button>
-  					<button class="button" data-filter=".business">business</button>
-  					<button class="button" data-filter=".design">design</button>
-  					<button class="button" data-filter=".development">development</button>
-  					<button class="button" data-filter=".seo">seo</button>
-  					<button class="button" data-filter=".marketing">marketing</button>
+  					<button class="button" data-filter=".rx">relax</button>
+					<button class="button" data-filter=".wd">wild</button>
+  					<button class="button" data-filter=".mx">mixed</button>
+  					<button class="button" data-filter=".bs">business</button>
+  					<button class="button" data-filter=".in">international</button>
 				</div>
 
 				<div class="grid" id="cGrid">
 					{% for Event in events_list %}
-					<div class="grid-item business" data-category={{Event.category}}>
+					<div class="grid-item {{Event.category}}" data-category={{Event.category}}>
 						<div class="img-wrap">
 							<img src="/media/{{Event.event_img}}" alt="courses picture">
 						</div>

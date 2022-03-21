@@ -124,15 +124,14 @@
 							<p>(Fairs Included)</p>
 						</div>
 						<div class="course-box">
-							<i class="fas fa-money-check-alt"></i>
-							<p>BDT {{event.price}}</p>
-							<p>(Fairs Included)</p>
+							<i class="fas fa-star"></i>
+							<p>{{rating|floatformat:1}}</p>
+							<p>{{review}} Reviews</p>
 						</div>
 					</header>
 					<article>
 						<section class="course-intro">
 							<h3>Description</h3>
-
 							<p>{{event.description}}</p>
 						</section>
 
@@ -181,19 +180,6 @@
 					</article>					
 				</main>
 				<aside>
-					{% if not user.is_authenticated %}
-					<div class="reserve-course">
-						<h2>Reserve this course</h2>
-						<form>
-							<input type="text" placeholder="Your Name*" required>
-							<input type="email" name="userEmail" placeholder="Your Email Address..." required>
-							<input type="text" placeholder="Your Occupation*" required>
-							<input type="text" placeholder="Choose course*" required>
-							<textarea placeholder="Write your message"></textarea>
-							<input type="submit" value="Submit">
-						</form>
-					</div>
-					{% else %}
 					<section class="page-content" id="course-page-copy">
 					<div class="course-box-copy">
 						<main class="course-detail-copy">
@@ -202,17 +188,27 @@
 									<h3>Enroll</h3>
 									<form action="" method="POST">
 										{% csrf_token %}
-										<button type="submit" value="Submit">Proceed</button>
+										{% if enrolled %}
+											<button type="button" disabled>Enrolled</button>
+										{% else %}
+											<button type="submit" value="Submit">Proceed</button>
+										{% endif %}
 									</form>
+									{% if user.is_authenticated %}
+										{% if enrolled %}
+										<hr/>
+										<h3>Travel Token</h3>
+										<button type="button">Download PDF</button>
+										{% endif %}
+									{% endif %}
 								</div>
 							</header>
 						</main>
 					</div>
 					</section>
-					{% endif %}
 					<!-- New Letter Ends -->
 					<div class="recent-post">
-						<h2>trainers</h2>
+						<h2>organizers</h2>
 						<div class="post">
 							<div class="post-wrap">
 								<div class="img-wrap">
@@ -220,8 +216,8 @@
 								</div>
 								<div class="post-content">
 									<a href="#">
-										<h3>Bibek Basnet</h3>
-										<p>Web Developer</p>
+										<h3>{{event.manager}}</h3>
+										<p>Manager</p>
 									</a>
 									<span>
 										<a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -293,52 +289,26 @@
 		</section>
 		<section class="recent-course-single">
 			<div class="container">
-				<h2>recent courses</h2>
+				<h2>recent events</h2>
 				<div class="grid">
-					<div class="grid-item" data-category="business">
+					{% for Event in events_list %}
+					<div class="grid-item" data-category="{{Event.category}}">
 						<div class="img-wrap">
-							<img src="{% static 'events/images/course-pic.png' %}" alt="courses picture">
+							<img src="/media/{{Event.event_img}}" alt="courses picture">
 						</div>
-						<a href="#" class="learn-desining-banner-course">Learn Web Designing >>></a>
+						<a href="/events/{{Event.slug}}" class="learn-desining-banner-course">{{Event.name}}</a>
 						<div class="box-body">
-							<p>Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum</p>
+							<p>{{Event.description}}</p>
 							<section>
-								<p><span>Duration:</span> 4 Years</p>
-								<p><span>Class Time:</span> 6am-12am / 11am-5pm</p>
-								<p><span>Fee:</span> 4,00,000</p>
+								<p><span>Date:</span>{{Event.date}}</p>
+								<p><span>Duration:</span> {{Event.duration_day}} Days, {{Event.duration_night}} Nights</p>
+								<p><span>Transport:</span> {% for transport in Event.transport.all %}{{transport}}, {% endfor %}</p>
+								<p><span>Fee:</span> {{Event.price}}</p>
 							</section>
 						</div>
 					</div>
-
-					<div class="grid-item" data-category="business">
-						<div class="img-wrap">
-							<img src="{% static 'events/images/course-pic.png' %}" alt="courses picture">
-						</div>
-						<a href="#" class="learn-desining-banner-course">Learn Web Designing >>></a>
-						<div class="box-body">
-							<p>Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum</p>
-							<section>
-								<p><span>Duration:</span> 4 Years</p>
-								<p><span>Class Time:</span> 6am-12am / 11am-5pm</p>
-								<p><span>Fee:</span> 4,00,000</p>
-							</section>
-						</div>
-					</div>
-
-					<div class="grid-item" data-category="design">
-						<div class="img-wrap">
-							<img src="{% static 'events/images/course-pic.png' %}" alt="courses picture">
-						</div>
-						<a href="#" class="learn-desining-banner-course">Learn Web Designing >>></a>
-						<div class="box-body">
-							<p>Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum</p>
-							<section>
-								<p><span>Duration:</span> 4 Years</p>
-								<p><span>Class Time:</span> 6am-12am / 11am-5pm</p>
-								<p><span>Fee:</span> 4,00,000</p>
-							</section>
-						</div>
-					</div>
+					{% endfor %}
+				</div>
 			</div>
 		</section>
 
