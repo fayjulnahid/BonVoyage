@@ -166,7 +166,7 @@
 						{% for Event in events_list %}
 						<div class="box-wrap" itemprop="event" itemscope itemtype=" http://schema.org/Course">
 							<div class="img-wrap" itemprop="image"><img src="/media/{{Event.event_img}}" alt="courses picture"></div>
-								<a href="/events/{{Event.slug}}" class="learn-desining-banner" itemprop="name">{{Event.name}} >>></a>
+								<a href="/events/{{Event.slug}}" class="learn-desining-banner" itemprop="name">{{Event.name}}</a>
 							<div class="box-body" itemprop="description">
 								<p>{{Event.description}}</p>
 								<section itemprop="time">
@@ -258,31 +258,22 @@
 		</section>
 		<section class="events-section" itemprop="event" itemscope itemtype=" http://schema.org/Event">
 			<div class="container">
+				{% for Event in upcoming %}
 				<div class="event-wrap">
 					<div class="img-wrap" itemprop="image">
 						<img src="{% static 'main/images/events.png' %}" alt="event images">
 					</div>
 					<div class="details">
-						<a href=""><h3 itemprop="name">Meghalaya Tour.</h3></a>
-						<p itemprop="description">Meghalaya tour in January, 2023. Book your pack now. Book your pack now. Book your pack now. Book your pack now.</p>
+						<a href=""><h3 itemprop="name">{{Event.name}}</h3></a>
+						<p itemprop="description">{{Event.description}}</p>
 
-						<h5 itemprop="startDate"><i class="far fa-clock"></i> Jan 1,2023 | 11am</h5>
-						<h5 itemprop="location"><i class="fas fa-map-marker-alt"></i> Meghalaya, India</h5>
+						<h5 itemprop="startDate"><i class="far fa-clock"></i> {{Event.duration_day}} Days | {{Event.duration_night}} Nights</h5>
+						<h5 itemprop="location"><i class="fas fa-map-marker-alt"></i> {% for location in Event.location.all %}
+								{{location}}
+								{% endfor %}</h5>
 					</div>
 				</div>
-
-				<div class="event-wrap">
-					<div class="img-wrap" itemprop="image">
-						<img src="{% static 'main/images/events.png' %}" alt="event images">
-					</div>
-					<div class="details">
-						<a href=""><h3 itemprop="name">Meghalaya Tour.</h3></a>
-						<p itemprop="description">Meghalaya tour in January, 2023. Book your pack now. Book your pack now. Book your pack now. Book your pack now.</p>
-
-						<h5 itemprop="startDate"><i class="far fa-clock"></i> Jan 1,2023 | 11am</h5>
-						<h5 itemprop="location"><i class="fas fa-map-marker-alt"></i> Meghalaya, India</h5>
-					</div>
-				</div>
+				{% endfor %}
 			</div>
 		</section>
 		<!-- End of Events section -->
