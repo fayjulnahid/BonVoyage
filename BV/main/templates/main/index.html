@@ -47,9 +47,16 @@
 						</div>
 						<div class="login-block">
 							{% if user.is_authenticated %}
-							<a href="/">
-								{{ user.first_name }}
+							<div class="dropdown1">
+							<a href = "/">{{ user.first_name }}<i class="fa fa-caret-down"></i>
 							</a>
+							<div class="dropdown-content">
+
+                                <a href="#" style="color: black">Profile</a>
+								<a href="#" style="color: black">Booking</a>
+
+                             </div>
+							</div>
 							<a><form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
                                         {% csrf_token %}
                             <button type="submit" class="btn btn-primary btn-sm">log out</button>
