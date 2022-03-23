@@ -121,12 +121,11 @@
 						<div class="course-box">
 							<i class="fas fa-money-check-alt"></i>
 							<p>BDT {{event.price}}</p>
-							<p>(Fairs Included)</p>
 						</div>
 						<div class="course-box">
-							<i class="fas fa-money-check-alt"></i>
+							<i class="fas fa-star"></i>
 							<p>{{rating|floatformat:1}}</p>
-							<p>{{review}}</p>
+							<p>{{review}} Reviews</p>
 						</div>
 					</header>
 					<article>
@@ -194,9 +193,9 @@
 											<button type="submit" value="Submit">Proceed</button>
 										{% endif %}
 									</form>
-									<hr/>
 									{% if user.is_authenticated %}
 										{% if enrolled %}
+										<hr/>
 										<h3>Travel Token</h3>
 										<button type="button">Download PDF</button>
 										{% endif %}
@@ -208,7 +207,7 @@
 					</section>
 					<!-- New Letter Ends -->
 					<div class="recent-post">
-						<h2>organizers</h2>
+						<h2>manager</h2>
 						<div class="post">
 							<div class="post-wrap">
 								<div class="img-wrap">
@@ -216,62 +215,8 @@
 								</div>
 								<div class="post-content">
 									<a href="#">
-										<h3>{{event.manager}}</h3>
+										<h3>{{event.manager.first_name}} {{event.manager.last_name}}</h3>
 										<p>Manager</p>
-									</a>
-									<span>
-										<a href="#"><i class="fab fa-facebook-f"></i></a>
-										<a href="#"><i class="fab fa-instagram"></i></a>
-										<a href="#"><i class="fab fa-twitter"></i></a>
-										<a href="#"><i class="fab fa-linkedin-in"></i></a>
-									</span>
-								</div>
-							</div>
-
-							<div class="post-wrap">
-								<div class="img-wrap">
-									<img src="{% static 'events/images/recent-post-img.jpg' %}" alt="Post Images">
-								</div>
-								<div class="post-content">
-									<a href="#">
-										<h3>Bibek Basnet</h3>
-										<p>Web Developer</p>
-									</a>
-									<span>
-										<a href="#"><i class="fab fa-facebook-f"></i></a>
-										<a href="#"><i class="fab fa-instagram"></i></a>
-										<a href="#"><i class="fab fa-twitter"></i></a>
-										<a href="#"><i class="fab fa-linkedin-in"></i></a>
-									</span>
-								</div>
-							</div>
-
-							<div class="post-wrap">
-								<div class="img-wrap">
-									<img src="{% static 'events/images/recent-post-img.jpg' %}" alt="Post Images">
-								</div>
-								<div class="post-content">
-									<a href="#">
-										<h3>Bibek Basnet</h3>
-										<p>Web Developer</p>
-									</a>
-									<span>
-										<a href="#"><i class="fab fa-facebook-f"></i></a>
-										<a href="#"><i class="fab fa-instagram"></i></a>
-										<a href="#"><i class="fab fa-twitter"></i></a>
-										<a href="#"><i class="fab fa-linkedin-in"></i></a>
-									</span>
-								</div>
-							</div>
-
-							<div class="post-wrap">
-								<div class="img-wrap">
-									<img src="{% static 'events/images/recent-post-img.jpg' %}" alt="Post Images">
-								</div>
-								<div class="post-content">
-									<a href="#">
-										<h3>Bibek Basnet</h3>
-										<p>Web Developer</p>
 									</a>
 									<span>
 										<a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -292,11 +237,12 @@
 				<h2>recent courses</h2>
 				<div class="grid">
 					{% for Event in events_list %}
-					<div class="grid-item" data-category="business">
+					{% if Event.slug != slug %}
+					<div class="grid-item" data-category="{{Event.category}}">
 						<div class="img-wrap">
 							<img src="/media/{{Event.event_img}}" alt="courses picture">
 						</div>
-						<a href="#" class="learn-desining-banner-course">{{Event.name}} >>></a>
+						<a href="/events/{{Event.slug}}" class="learn-desining-banner-course">{{Event.name}}</a>
 						<div class="box-body">
 							<p>{{Event.description}}</p>
 							<section>
@@ -307,6 +253,7 @@
 							</section>
 						</div>
 					</div>
+					{% endif %}
 					{% endfor %}
 				</div>
 			</div>
