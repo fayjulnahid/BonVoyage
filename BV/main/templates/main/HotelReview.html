@@ -132,107 +132,48 @@
           </div>
 		</div> -->
 		<!-- Banner Close -->
-		<section class="course-listing-page">
-			<div class="container">
-				<div id="filters" class="button-group">
-					<button class="button" data-filter="*">all</button>
-				</div>
-                <div class="card-deck" id="cGrid">
-                    <div class="grid-item mx" data-category="mx" style="position: absolute; left: 0px; top: 0px;">
-						<div class="img-wrap">
-							<img src="/static/panpacific.png" alt="courses picture">
-						</div>
-						<a href="/main/room" class="learn-desining-banner-course">Pan Pacific Shonargaon</a>
-						<div class="box-body">
-							<p>Sample Description</p>
-							<section>
-								<p><span>Address:</span> Pan Pacific Sonargaon Dhaka, 107 Kazi Nazrul Islam Ave, Dhaka 1215</p>
-								<p><span>Phone:</span> 02222-240400</p>
-								<p><span>Fees:</span> Check Description </p>
-							</section>
-						</div>
-					</div>
-
-                    <div class="grid-item mx" data-category="mx" style="position: absolute; left: 0px; top: 0px;">
-						<div class="img-wrap">
-							<img src="/static/radissonblu.jpg" alt="courses picture">
-						</div>
-						<a href="/main/room" class="learn-desining-banner-course">   Radisson Blu   </a>
-						<div class="box-body">
-							<p>Sample Description</p>
-							<section>
-								<p><span>Address:</span> Radisson Blu, 107 Kazi Nazrul Islam Ave, Dhaka 1215</p>
-								<p><span>Phone:</span> 02222-240400</p>
-								<p><span>Fees:</span> Check Description </p>
-							</section>
-						</div>
-					</div>
 
 
-                    <div class="grid-item mx" data-category="mx" style="position: absolute; left: 0px; top: 0px;">
-						<div class="img-wrap">
-							<img src="/static/GrandPlazaHotel.jpg" alt="courses picture">
-						</div>
-						<a href="/main/room" class="learn-desining-banner-course">Grand Plaza Hotel</a>
-						<div class="box-body">
-							<p>Sample Description</p>
-							<section>
-								<p><span>Address:</span> Grand Plaza Hotel, 107 Kazi Nazrul Islam Ave, Dhaka 1215</p>
-								<p><span>Phone:</span> 02222-240400</p>
-								<p><span>Fees:</span> Check Description </p>
-							</section>
-						</div>
-					</div>
+        <section class="signup">
+            <!-- <img src="images/signup-bg.jpg" alt=""> -->
+            <div class="container">
+                <div class="signup-content">
 
-                    <div class="grid-item mx" data-category="mx" style="position: absolute; left: 0px; top: 0px;">
-						<div class="img-wrap">
-							<img src="/static/EmpyreanHotel.png" alt="courses picture">
-						</div>
-						<a href="/main/room" class="learn-desining-banner-course">Empyrean Hotel</a>
-						<div class="box-body">
-							<p>Sample Description</p>
-							<section>
-								<p><span>Address:</span> Empyrean Hotel, 107 Kazi Nazrul Islam Ave, Dhaka 1215</p>
-								<p><span>Phone:</span> 02222-240400</p>
-								<p><span>Fees:</span> Check Description </p>
-							</section>
-						</div>
-					</div>
+                    <form method="POST" id="register-form" class="register-form">
+					{% csrf_token %}
+                        <h2 class="form-title">Write Review</h2>
 
-                    <div class="grid-item mx" data-category="mx" style="position: absolute; left: 0px; top: 0px;">
-						<div class="img-wrap">
-							<img src="/static/TheRaintreeDhaka.png" alt="courses picture">
-						</div>
-						<a href="/main/room" class="learn-desining-banner-course">TheRaintreeDhaka</a>
-						<div class="box-body">
-							<p>Sample Description</p>
-							<section>
-								<p><span>Address:</span> The Raintree Dhaka, 107 Kazi Nazrul Islam Ave, Dhaka 1215</p>
-								<p><span>Phone:</span> 02222-240400</p>
-								<p><span>Fees:</span> Check Description </p>
-							</section>
-						</div>
-					</div>
+						<div class="form-group">
+                            <label class="u-label">Your Name</label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							{{form.name}}
+                        </div>
+                        <div class="form-group">
+                            <label class="u-label">Hotel Name</label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+							{{form.hotelName}}
+                        </div>
+                        <div class="form-group">
+							<label class="u-label align" data-align="top">Review</label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							{{form.review}}
+                        </div>
+                        <div class="form-group">
+                            <label class="u-label">Rating</label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-					<div class="grid-item mx" data-category="mx" style="position: absolute; left: 0px; top: 0px;">
-						<div class="img-wrap">
-							<img src="/static/panpacific.png" alt="courses picture">
-						</div>
-						<a href="/main/room" class="learn-desining-banner-course">La Meridian Dhaka</a>
-						<div class="box-body">
-							<p>Sample Description</p>
-							<section>
-								<p><span>Address:</span> La Meridian, 107 Kazi Nazrul Islam Ave, Dhaka 1215</p>
-								<p><span>Phone:</span> 02222-240400</p>
-								<p><span>Fees:</span> Check Description </p>
-							</section>
-						</div>
-					</div>
+							<select name="rating" required="" id="id_rating" value="{{ form.rating }}">
+                                </select>
+
+                        </div>
+
+                        <button type="submit" name="signup_submit" id="submit_button" class="form-submit" value="Sign up">Submit</button>
+
+                    </form>
+
                 </div>
-
-
-			</div>
-		</section>
+            </div>
+        </section>
 
 
 
