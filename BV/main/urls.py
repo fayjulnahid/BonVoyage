@@ -10,4 +10,15 @@ urlpatterns = [
     url(r'^user_profile/$', views.UserProfile, name="user_profile"),
     url(r'^create_profile/$', views.createProfile, name="create_profile"),
     path('about/', views.about, name='about'),
+
+    url(r'^hotel_page/$', views.hotel_page, name="hotel_page"),
+    url(r'^room/$', views.RoomShow, name="RoomShow"),
+
+    url(r'^reservation_new/$', views.reservationnew, name="reservation_new"),
+    path('hotel_bookingPdf', views.hotel_bookingPdf, name="hotel_bookingPdf"),
+
+    url(r'^hotelReview/$', views.hotelReview, name="hotelReview"),
+    path('deleteHotelReview/<str:pk>/$', views.deleteHotelReview, name="deleteHotelReview"),
+
+
 ]

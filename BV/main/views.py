@@ -91,3 +91,138 @@ def createProfile(request):
 
 def about(request):
     return render(request, 'main/about.html')
+
+@login_required(login_url="/account/login/")
+def RoomShow(request):
+    hotelReview = HotelReview.objects.all().order_by('date')
+    roomModel = RoomModel.objects.all().order_by('slug')
+    profile = userProfile.objects.all()
+    context = {}
+    hotel_name = request.POST.get('hotel-name')
+    context['hotel_name'] = hotel_name
+    context['roomModel'] = roomModel
+    context['profile'] = profile
+
+    context['hotelReview'] = hotelReview
+
+    hotel = hotel_name.split('_')
+    mylist = ' '.join(hotel)
+    context['mylist'] = mylist
+
+    return render(request, 'main/HotelRoom.html', context)
+
+@login_required(login_url="/account/login/")
+def hotel_page(request):
+    return render(request, 'main/HotelPage.html')
+
+@login_required(login_url="/account/login/")
+def hotelReview(request):
+    form = forms.HotelReview()
+    if request.method == 'POST':
+        form = forms.HotelReview(request.POST)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.user = request.user
+            instance.save()
+            next = request.POST.get('next', '/')
+            return HttpResponseRedirect(next)
+    else:
+        form = forms.HotelReview()
+    return render(request, 'main/HotelReview.html', {'form': form})
+
+
+@login_required(login_url="/account/login/")
+def deleteHotelReview(request, pk):
+    instance = HotelReview.objects.get(id=pk)
+    instance.delete()
+    return redirect('articles:hotel_page')
+
+@login_required(login_url="/account/login/")
+def hotel_bookingPdf(request):
+    buf = io.BytesIO()
+    c = canvas.Canvas(buf, pagesize=letter, bottomup=0)
+    textob = c.beginText()
+    textob.setTextOrigin(inch, inch)
+    textob.setFont("Helvetica", 14)
+    logo = ImageReader('https://i.ibb.co/MPcBtHf/logo1.jpg')
+
+    name = reservationnew.user_name
+    mail = reservationnew.user_email
+    phone = reservationnew.user_phone
+    checkin = reservationnew.checkin_date
+    checkout = reservationnew.checkout_date
+    hotel_name = reservationnew.hotel_name
+    room_number = reservationnew.room_numbers
+    room_type = reservationnew.room_type
+
+    hotel_reservation_instance = HotelReservation.objects.create(user_name=name, user_email=mail, user_phone=phone,
+                                                                 checkin_date=checkin, checkout_date=checkout,
+                                                                 hotel_name=hotel_name, room_number=room_number,
+                                                                 room_type=room_type, user=request.user)
+    hotel_reservation_instance.save()
+
+    lines = [
+        " ",
+        " ",
+        " ",
+        " ",
+        " ",
+        " ",
+
+        "                                     Welcome to Bon Voyage",
+        " ",
+        "                           Your Reservation confirmation is below",
+        " ",
+        " ",
+        " ",
+        "        Full name: " + name,
+        " ",
+        "        Email: " + mail,
+        " ",
+        "        Phone: " + phone,
+        " ",
+        "        Check-in date: " + checkin,
+        " ",
+        "        Check-out date: " + checkout,
+        " ",
+        "        Hotel name: " + hotel_name,
+        " ",
+        "        Total number of rooms: " + room_number,
+        " ",
+        "        Room type: " + room_type,
+        " ",
+        " ",
+        "",
+        "                               Thank you for visiting Bon Voyage",
+        "",
+        "                              All right reserved by Bon Voyage team",
+
+    ]
+
+    for line in lines:
+        textob.textLine(line)
+
+    c.drawImage(logo, 170, 10, mask='auto', anchor='c')
+    c.drawText(textob)
+    c.showPage()
+    c.save()
+    buf.seek(0)
+
+    return FileResponse(buf, as_attachment=True, filename='room.pdf')
+
+@login_required(login_url="/account/login/")
+def reservationnew(request):
+    reservationnew.user_name = request.POST.get('user-name')
+    reservationnew.user_email = request.POST.get('user-email')
+    reservationnew.user_phone = request.POST.get('user-phone')
+    reservationnew.checkin_date = request.POST.get('checkin-date')
+    reservationnew.checkout_date = request.POST.get('checkout-date')
+    reservationnew.hotel_name = request.POST.get('hotel-name')
+    reservationnew.room_numbers = request.POST.get('room-numbers')
+    reservationnew.room_type = request.POST.get('room-type')
+
+    return render(request, 'main/reservationnew.html',
+                  {'user_name': reservationnew.user_name, 'user_email': reservationnew.user_email,
+                   'user_phone': reservationnew.user_phone, 'checkin_date': reservationnew.checkin_date,
+                   'checkout_date': reservationnew.checkout_date, 'hotel_name': reservationnew.hotel_name,
+                   'room_numbers': reservationnew.room_numbers, 'room_type': reservationnew.room_type})
