@@ -9,4 +9,5 @@ urlpatterns = [
 
     url(r'^user_profile/$', views.UserProfile, name="user_profile"),
     url(r'^create_profile/$', views.createProfile, name="create_profile"),
+    path('about/', views.about, name='about'),
 ]
