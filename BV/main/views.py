@@ -88,3 +88,6 @@ def createProfile(request):
     else:
         form = forms.UserProfile()
     return render(request, 'main/createprofile.html', {'form': form})
+
+def about(request):
+    return render(request, 'main/about.html')
