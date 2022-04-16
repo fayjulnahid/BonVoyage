@@ -132,6 +132,10 @@
           </div>
 		</div> -->
 		<!-- Banner Close -->
+
+		<form method="POST" action="{% url 'main:RoomShow' %}">
+			{% csrf_token %}
+
 		<section class="course-listing-page">
 			<div class="container">
 				<div id="filters" class="button-group">
@@ -142,13 +146,14 @@
 						<div class="img-wrap">
 							<img src="/static/panpacific.png" alt="courses picture">
 						</div>
-						<a href="/main/room" class="learn-desining-banner-course">Pan Pacific Shonargaon</a>
+						<a href="{% url 'main:RoomShow' %}" name="hotel-name"  class="learn-desining-banner-course">Pan Pacific Shonargaon</a>
 						<div class="box-body">
 							<p>Sample Description</p>
 							<section>
 								<p><span>Address:</span> Pan Pacific Sonargaon Dhaka, 107 Kazi Nazrul Islam Ave, Dhaka 1215</p>
 								<p><span>Phone:</span> 02222-240400</p>
 								<p><span>Fees:</span> Check Description </p>
+								<button style="padding-left:10px;" type="submit" name="hotel-name" value="Radisson_Blu" class="accommodation-list__button--12985 hoverState"><img src="/static/advance.png" width="50" height="50"></button>
 							</section>
 						</div>
 					</div>
@@ -233,6 +238,8 @@
 
 			</div>
 		</section>
+
+		</form>
 
 
 

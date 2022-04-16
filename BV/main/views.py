@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from events.models import Event
 from django.shortcuts import render
 from . import forms
-from .models import userProfile
+from .models import userProfile, HotelReview, RoomModel
 
 
 def index(request):
