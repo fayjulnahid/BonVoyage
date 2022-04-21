@@ -156,7 +156,7 @@ def hotel_bookingPdf(request):
     textob = c.beginText()
     textob.setTextOrigin(inch, inch)
     textob.setFont("Helvetica", 14)
-    logo = ImageReader('https://i.ibb.co/MPcBtHf/logo1.jpg')
+    #logo = ImageReader('https://i.ibb.co/MPcBtHf/logo1.jpg')
 
     name = reservationnew.user_name
     mail = reservationnew.user_email
@@ -169,7 +169,7 @@ def hotel_bookingPdf(request):
 
     hotel_reservation_instance = HotelReservation.objects.create(user_name=name, user_email=mail, user_phone=phone,
                                                                  checkin_date=checkin, checkout_date=checkout,
-                                                                 hotel_name=hotel_name, room_number=room_number,
+                                                                 hotelName=hotel_name, room_number=room_number,
                                                                  room_type=room_type, user=request.user)
     hotel_reservation_instance.save()
 
@@ -214,7 +214,7 @@ def hotel_bookingPdf(request):
     for line in lines:
         textob.textLine(line)
 
-    c.drawImage(logo, 170, 10, mask='auto', anchor='c')
+    #c.drawImage(logo, 170, 10, mask='auto', anchor='c')
     c.drawText(textob)
     c.showPage()
     c.save()
@@ -239,3 +239,15 @@ def reservationnew(request):
                    'user_phone': reservationnew.user_phone, 'checkin_date': reservationnew.checkin_date,
                    'checkout_date': reservationnew.checkout_date, 'hotel_name': reservationnew.hotel_name,
                    'room_numbers': reservationnew.room_numbers, 'room_type': reservationnew.room_type})
+
+@login_required(login_url="/account/login/")
+def hotelsearch(request):
+    if request.method == 'POST':
+        search = request.POST['hotel-search']
+        search1 = search.split(' ')
+        search2 = ('_').join(search1)
+        context = {}
+        context['hotelsearch'] = search
+        roomModel = RoomModel.objects.filter(slug__icontains=search2)
+        context['roomModel'] = roomModel
+    return render(request, 'main/hotelsearch.html', context)
