@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from events.models import Event
 from django.shortcuts import render, redirect
 from . import forms
-from .models import userProfile, HotelReview, RoomModel
+from .models import userProfile, HotelReview, RoomModel, HotelReservation
 
 from django.http import FileResponse
 import io
