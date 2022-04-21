@@ -1,9 +1,21 @@
+import io
+
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from events.models import Event
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from . import forms
 from .models import userProfile, HotelReview, RoomModel
+
+from django.http import FileResponse
+import io
+from reportlab.pdfgen import canvas
+from reportlab.lib.units import inch
+from reportlab.lib.pagesizes import letter
+from reportlab.lib.utils import ImageReader
+
+from django.core.mail import send_mail
+from . import forms
 
 
 def index(request):
