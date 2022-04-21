@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from events.models import Event
 from django.shortcuts import render, redirect
 from . import forms
-from .models import userProfile, HotelReview, RoomModel
+from .models import userProfile, HotelReview, RoomModel, HotelReservation
 
 from django.http import FileResponse
 import io
@@ -225,6 +225,7 @@ def hotel_bookingPdf(request):
 @login_required(login_url="/account/login/")
 def reservationnew(request):
     reservationnew.user_name = request.POST.get('user-name')
+    print(reservationnew.user_name)
     reservationnew.user_email = request.POST.get('user-email')
     reservationnew.user_phone = request.POST.get('user-phone')
     reservationnew.checkin_date = request.POST.get('checkin-date')
@@ -233,7 +234,7 @@ def reservationnew(request):
     reservationnew.room_numbers = request.POST.get('room-numbers')
     reservationnew.room_type = request.POST.get('room-type')
 
-    return render(request, 'main/reservationnew.html',
+    return render(request, 'main/hotel_booking.html',
                   {'user_name': reservationnew.user_name, 'user_email': reservationnew.user_email,
                    'user_phone': reservationnew.user_phone, 'checkin_date': reservationnew.checkin_date,
                    'checkout_date': reservationnew.checkout_date, 'hotel_name': reservationnew.hotel_name,
