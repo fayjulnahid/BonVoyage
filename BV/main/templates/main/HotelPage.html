@@ -133,14 +133,21 @@
 		</div> -->
 		<!-- Banner Close -->
 
+
 		<form method="POST" action="{% url 'main:RoomShow' %}">
 			{% csrf_token %}
 
 		<section class="course-listing-page">
 			<div class="container">
-				<div id="filters" class="button-group">
-					<button class="button" data-filter="*">all</button>
+				<div id="filters" class="button-group" align="center">
+						<form method="POST" action="/main/hotelsearch/">
+							{% csrf_token %}
+							<input type="text" name="hotel-search"/>
+							<input type="submit"/>
+							<br><br><br>
+						</form>
 				</div>
+
                 <div class="card-deck" id="cGrid">
                     <div class="grid-item mx" data-category="mx" style="position: absolute; left: 0px; top: 0px;">
 						<div class="img-wrap">

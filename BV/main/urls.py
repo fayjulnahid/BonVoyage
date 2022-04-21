@@ -18,7 +18,8 @@ urlpatterns = [
     path('hotel_bookingPdf', views.hotel_bookingPdf, name="hotel_bookingPdf"),
 
     url(r'^hotelReview/$', views.hotelReview, name="hotelReview"),
-    path('deleteHotelReview/<str:pk>/$', views.deleteHotelReview, name="deleteHotelReview"),
+    url(r'^hotelsearch/$', views.hotelsearch, name="hotelsearch"),
+    #path('deleteHotelReview/<str:pk>/$', views.deleteHotelReview, name="deleteHotelReview"),
 
 
 ]

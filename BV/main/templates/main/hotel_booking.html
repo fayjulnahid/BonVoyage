@@ -169,8 +169,6 @@
         <div id="cid_4" class="form-input-wide" data-layout="full">
           <div id="text_4" class="form-html" data-component="text">
             Your registration will be verified prior to your arrival.
-
-
           </div>
         </div>
       </li>
@@ -180,7 +178,6 @@
           <div data-wrapper-react="true">
             <span class="form-sub-label-container" style="vertical-align:top" data-input-type="first">
              <input class="form-textbox" type="text" name="user-name">
-
             </span>
 
           </div>
@@ -268,7 +265,7 @@
 
               {% if not user_name and not user_email and not user_phone and not checkin_date and not hotel_name and not room_numbers and not room_type %}
                 <h3>Please Enter all the information to confirm reservation</h3>
-                {% endif %}
+			  {% endif %}
           </div>
         </div>
       </li>
