@@ -3,10 +3,36 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Event, Enrollment, Review
 
+from django.http import HttpResponse
+from django.template.loader import get_template
+from xhtml2pdf import pisa
+
 events_list = Event.objects.all()
 
-def hi(request):
-    return HttpResponse('<h1>This page works</h1>')
+
+def ticket_pdf(request, slug=None):
+    template_path = 'ticket_pdf.html'
+    user = request.user
+    event = Event.objects.get(slug=slug)
+    name = user.first_name + user.last_name
+    enrollment = Enrollment.objects.get(traveller=user, event=event)
+    members = enrollment.adult+enrollment.child
+    payment = event.price*members-enrollment.get_discount
+    context = {'enrollment': enrollment,'members': members, 'event': event,'name': name, 'payment': payment}
+    # Create a Django response object, and specify content_type as pdf
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'filename="token.pdf"'
+    # find the template and render it.
+    template = get_template(template_path)
+    html = template.render(context)
+
+    # create a pdf
+    pisa_status = pisa.CreatePDF(
+        html, dest=response)
+    # if error then show some funny view
+    if pisa_status.err:
+        return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    return response
 
 
 def all_events(request):
@@ -17,7 +43,6 @@ def enroll(request, event, slug):
     traveller = request.user
     mobile = '10165658599'
     Enrollment.objects.create(event=event, traveller=traveller, mobile=mobile)
-
 
 
 def event_detail(request, slug=None):

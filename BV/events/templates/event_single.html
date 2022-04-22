@@ -190,6 +190,30 @@
 										{% if enrolled %}
 											<button type="button" disabled>Enrolled</button>
 										{% else %}
+											<hr>
+											<div class="form-group">
+												<label for="members">Select members</label>
+												<select class="form-control" name="members" id="members">
+													<option>1</option>
+													<option>2</option>
+													<option>3</option>
+													<option>4</option>
+													<option>5</option>
+												</select>
+												<br>
+												<label for="child">Select children</label>
+												<select class="form-control" name="child" id="child">
+													<option>0</option>
+													<option>1</option>
+													<option>2</option>
+												</select>
+												<br>
+												<label for="mobile">Mobile</label>
+												<input type="text" class="form-control" name="mobile" id="mobile" aria-describedby="PhoneNo" placeholder="Enter mobile">
+												<br>
+												<small id="PhoneNo" class="form-text text-muted">We'll never share your contact no with anyone else.</small>
+											</div>
+										<hr>
 											<button type="submit" value="Submit">Proceed</button>
 										{% endif %}
 									</form>
@@ -197,7 +221,7 @@
 										{% if enrolled %}
 										<hr/>
 										<h3>Travel Token</h3>
-										<button type="button">Download PDF</button>
+										<button type="button" disabled>Download PDF</button>
 										{% endif %}
 									{% endif %}
 								</div>

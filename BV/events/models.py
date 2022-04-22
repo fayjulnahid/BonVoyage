@@ -57,7 +57,7 @@ class Enrollment(models.Model):
     paid = models.BooleanField(default=False, editable=True)
     get_discount = models.FloatField(default=0.0, editable=True)
     _msg = models.TextField(blank=True)
-    status_choice = [('pd', 'pending'), ('bk', 'booked'), ('vs', 'visited')]
+    status_choice = [('pending', 'pending'), ('approved', 'approved')]
     status = models.CharField(max_length=120, choices=status_choice, default='pd', editable=True)
     objects: models.Manager()
 
