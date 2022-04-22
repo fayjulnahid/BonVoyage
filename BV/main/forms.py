@@ -5,3 +5,9 @@ class UserProfile(forms.ModelForm):
     class Meta:
         model = models.userProfile
         fields = ['user_name', 'user_phone', 'user_address', 'bio', 'user_image']
+
+class HotelReview(forms.ModelForm):
+    class Meta:
+        model = models.HotelReview
+        fields = ['name', 'hotelName', 'review', 'rating']
+
