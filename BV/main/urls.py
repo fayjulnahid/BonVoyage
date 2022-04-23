@@ -21,5 +21,8 @@ urlpatterns = [
     url(r'^hotelsearch/$', views.hotelsearch, name="hotelsearch"),
     #path('deleteHotelReview/<str:pk>/$', views.deleteHotelReview, name="deleteHotelReview"),
 
+    url(r'^direct_message/$', views.directmessage, name="direct_message"),
+    url(r'^sent_message/$', views.sentmessage, name="sent_message"),
+
 
 ]

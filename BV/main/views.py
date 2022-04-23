@@ -2,10 +2,11 @@ import io
 
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
+from django.urls import reverse
 from events.models import Event
 from django.shortcuts import render, redirect
 from . import forms
-from .models import userProfile, HotelReview, RoomModel, HotelReservation
+from .models import userProfile, HotelReview, RoomModel, HotelReservation, chat
 
 from django.http import FileResponse
 import io
@@ -251,3 +252,29 @@ def hotelsearch(request):
         roomModel = RoomModel.objects.filter(slug__icontains=search2)
         context['roomModel'] = roomModel
     return render(request, 'main/hotelsearch.html', context)
+
+@login_required(login_url="/account/login/")
+def directmessage(request):
+    userName = userProfile.objects.all()
+    Chat = chat.objects.all().order_by('-date')
+    context = {}
+    context['chat'] = Chat
+    context['userName'] = userName
+    return render(request, 'main/directMessage.html', context)
+
+
+@login_required(login_url="/account/login/")
+def sentmessage(request):
+    form = forms.chatForm()
+    if request.method == 'POST':
+        form = forms.chatForm(request.POST)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.from_user = request.user
+            instance.save()
+            url = reverse('articles:direct_message')
+            next = request.POST.get('next', '/')
+            return HttpResponseRedirect(url)
+    else:
+        form = forms.chatForm()
+    return render(request, 'main/messageSend.html', {'form': form})
