@@ -11,3 +11,7 @@ class HotelReview(forms.ModelForm):
         model = models.HotelReview
         fields = ['name', 'hotelName', 'review', 'rating']
 
+class chatForm(forms.ModelForm):
+    class Meta:
+        model = models.chat
+        fields = ['to_user', 'chat']

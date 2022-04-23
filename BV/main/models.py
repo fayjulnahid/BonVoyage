@@ -68,3 +68,9 @@ class HotelReservation(models.Model):
     room_number = models.CharField(max_length=20)
     room_type = models.CharField(max_length=20)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, default=None, on_delete=models.DO_NOTHING)
+
+class chat(models.Model):
+    from_user = models.ForeignKey(settings.AUTH_USER_MODEL, default=None, on_delete=models.DO_NOTHING, related_name='from_user')
+    to_user = models.ForeignKey(settings.AUTH_USER_MODEL, default=None, on_delete=models.DO_NOTHING, related_name='to_user')
+    chat = models.CharField(max_length=300, null=True)
+    date = models.DateTimeField(auto_now_add=True)

@@ -9,7 +9,7 @@
 
 <link type="text/css" rel="stylesheet" href="https://cdn01.jotfor.ms/themes/CSS/5e6b428acc8c4e222d1beb91.css?themeRevisionID=5f7ed99c2c2c7240ba580251"/>
 
-	<title>Events</title>
+	<title>Hotel Booking</title>
 	<meta name="viewport" content="width=device-width">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="{% static 'events/css/all.css' %}">
@@ -89,6 +89,14 @@
 										<li><a href="{% url 'main:reservation_new' %}">Take Hotel Reservation</a></li>
 									</ul>
 								</li>
+
+								<li class="menu-parent">Social Network
+									<ul class="sub-menu">
+										<li><a href="{% url 'main:direct_message' %}">Message Someone</a></li>
+										<li><a href="{% url 'main:reservation_new' %}">ShoutBox</a></li>
+									</ul>
+								</li>
+
 								<li><a href="">About</a></li>
 								<li><a href="">Gallery</a></li>
 								<li><a href="">Contact</a></li>
