@@ -272,7 +272,7 @@ def sentmessage(request):
             instance = form.save(commit=False)
             instance.from_user = request.user
             instance.save()
-            url = reverse('articles:direct_message')
+            url = reverse('main:direct_message')
             next = request.POST.get('next', '/')
             return HttpResponseRedirect(url)
     else:
