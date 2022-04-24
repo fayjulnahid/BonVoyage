@@ -15,3 +15,8 @@ class chatForm(forms.ModelForm):
     class Meta:
         model = models.chat
         fields = ['to_user', 'chat']
+
+class chatForumForm(forms.ModelForm):
+    class Meta:
+        model = models.chatForumMessages
+        fields = ['message']

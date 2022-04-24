@@ -6,7 +6,7 @@ from django.urls import reverse
 from events.models import Event
 from django.shortcuts import render, redirect
 from . import forms
-from .models import userProfile, HotelReview, RoomModel, HotelReservation, chat, Contact
+from .models import userProfile, HotelReview, RoomModel, HotelReservation, chat, Contact, chatForumMessages
 
 from django.http import FileResponse
 import io
@@ -278,6 +278,26 @@ def sentmessage(request):
     else:
         form = forms.chatForm()
     return render(request, 'main/messageSend.html', {'form': form})
+
+@login_required(login_url="/account/login/")
+def chatForum(request):
+    form = forms.chatForumForm()
+    if request.method == 'POST':
+        form = forms.chatForumForm(request.POST)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.message_user = request.user
+            instance.save()
+            return HttpResponseRedirect(request.path_info)
+    else:
+        form = forms.chatForumForm()
+
+    forum = chatForumMessages.objects.all().order_by('-date')
+    context = {}
+    context['forum'] = forum
+    context['form'] = form
+    return render(request, 'main/chatForum.html', context)
+
 
 def contact(request):
     if request.method == 'POST':
