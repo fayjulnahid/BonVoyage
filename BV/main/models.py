@@ -75,6 +75,14 @@ class chat(models.Model):
     chat = models.CharField(max_length=300, null=True)
     date = models.DateTimeField(auto_now_add=True)
 
+class chatForumMessages(models.Model):
+    message_user = models.ForeignKey(settings.AUTH_USER_MODEL, default=None, on_delete=models.DO_NOTHING)
+    message = models.CharField(max_length=300, null=True)
+    date = models.DateTimeField(auto_now_add=True)
+
+
+
+
 class Contact(models.Model):
     name = models.CharField(max_length=20)
     email = models.CharField(max_length=20)
