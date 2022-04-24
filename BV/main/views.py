@@ -148,7 +148,7 @@ def hotelReview(request):
 def deleteHotelReview(request, pk):
     instance = HotelReview.objects.get(id=pk)
     instance.delete()
-    return redirect('articles:hotel_page')
+    return redirect('main:hotel_page')
 
 @login_required(login_url="/account/login/")
 def hotel_bookingPdf(request):

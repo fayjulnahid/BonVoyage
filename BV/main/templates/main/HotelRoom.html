@@ -252,8 +252,14 @@
 										<h4> Rating Given: {{hotelReview.rating }}/10</h4>
                                 	<h4> {{ hotelReview.review }}</h4>
 							</td>
-
-                                <br>
+								<td VALIGN=TOP width="60" style="text-align:center">
+									{% ifequal user hotelReview.user %}
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="{% url 'main:deleteHotelReview' hotelReview.id %}">
+                                  <img src="/static/delete-circle-icon.png" height="30px" width="30px">
+										{% endifequal %}
+								</a>
+								</td>
+								<br>
 							</tr>
 						</table>
                         {% endifequal %}
