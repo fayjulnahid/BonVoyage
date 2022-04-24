@@ -24,5 +24,7 @@ urlpatterns = [
     url(r'^direct_message/$', views.directmessage, name="direct_message"),
     url(r'^sent_message/$', views.sentmessage, name="sent_message"),
 
+    path('contact/',views.contact, name='contact'),
+
 
 ]

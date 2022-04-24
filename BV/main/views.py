@@ -6,7 +6,7 @@ from django.urls import reverse
 from events.models import Event
 from django.shortcuts import render, redirect
 from . import forms
-from .models import userProfile, HotelReview, RoomModel, HotelReservation, chat
+from .models import userProfile, HotelReview, RoomModel, HotelReservation, chat, Contact
 
 from django.http import FileResponse
 import io
@@ -278,3 +278,20 @@ def sentmessage(request):
     else:
         form = forms.chatForm()
     return render(request, 'main/messageSend.html', {'form': form})
+
+def contact(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        contact = request.POST['contact']
+        message = request.POST['message']
+        data_dict = {
+            'name': name,
+            'email': email,
+            'contact': contact,
+            'message': message,
+        }
+        Contact.objects.create(**data_dict)
+        # messages.success(request, 'Message has been sent successfully ')
+        return HttpResponseRedirect(reverse('main:contact'))
+    return render(request, 'main/contact.html')

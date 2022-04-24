@@ -74,3 +74,13 @@ class chat(models.Model):
     to_user = models.ForeignKey(settings.AUTH_USER_MODEL, default=None, on_delete=models.DO_NOTHING, related_name='to_user')
     chat = models.CharField(max_length=300, null=True)
     date = models.DateTimeField(auto_now_add=True)
+
+class Contact(models.Model):
+    name = models.CharField(max_length=20)
+    email = models.CharField(max_length=20)
+    contact = models.CharField(max_length=20)
+    message = models.CharField(max_length=20)
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
