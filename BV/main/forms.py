@@ -20,3 +20,8 @@ class chatForumForm(forms.ModelForm):
     class Meta:
         model = models.chatForumMessages
         fields = ['message']
+
+class wishlistForm(forms.ModelForm):
+    class Meta:
+        model = models.wishlist
+        fields = ['PlaceName']
