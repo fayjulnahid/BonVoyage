@@ -6,7 +6,7 @@ from django.urls import reverse
 from events.models import Event
 from django.shortcuts import render, redirect
 from . import forms
-from .models import userProfile, HotelReview, RoomModel, HotelReservation, chat, Contact, chatForumMessages
+from .models import userProfile, HotelReview, RoomModel, HotelReservation, chat, Contact, chatForumMessages,wishlist
 
 from django.http import FileResponse
 import io
@@ -68,21 +68,21 @@ def UserProfile(request):
     context['bio'] = UserProfile.bio
     context['image'] = UserProfile.image
 
-    #userBookedHotels = HotelReservation.objects.filter(user=request.user)
-    #context['userBookedHotels'] = userBookedHotels
+    userBookedHotels = HotelReservation.objects.filter(user=request.user)
+    context['userBookedHotels'] = userBookedHotels
 
-    #reservation = HotelReservation.objects.filter(user=request.user)
-    #count = 0
-    #for i in reservation:
-       # count += 1
+    reservation = HotelReservation.objects.filter(user=request.user)
+    count = 0
+    for i in reservation:
+        count += 1
 
-    #context['offer'] = '0'
-    #if 3 <= count < 5:
-    #    context['offer'] = '30'
-    #elif 5 <= count < 10:
-    #    context['offer'] = '40'
-    #elif count >= 10:
-    #    context['offer'] = '50'
+    context['offer'] = '0'
+    if 3 <= count < 5:
+        context['offer'] = '30'
+    elif 5 <= count < 10:
+        context['offer'] = '40'
+    elif count >= 10:
+        context['offer'] = '50'
 
     return render(request, 'main/user_profile.html', context)
 
@@ -298,6 +298,32 @@ def chatForum(request):
     context['form'] = form
     return render(request, 'main/chatForum.html', context)
 
+@login_required(login_url="/account/login/")
+def wishList(request):
+    form = forms.wishlistForm()
+    if request.method == 'POST':
+        form = forms.wishlistForm(request.POST)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.user = request.user
+            instance.save()
+            url = reverse('main:user_profile')
+            next = request.POST.get('next', '/')
+            return HttpResponseRedirect(url)
+    else:
+        form = forms.wishlistForm()
+
+    WishList = wishlist.objects.all().order_by('-date')
+    context = {}
+    context['WishList'] = WishList
+    context['form'] = form
+    return render(request, 'main/wishlist.html', context)
+
+@login_required(login_url="/account/login/")
+def deletewishlist(request, pk):
+    instance = wishlist.objects.get(id=pk)
+    instance.delete()
+    return redirect('main:wishlist')
 
 def contact(request):
     if request.method == 'POST':

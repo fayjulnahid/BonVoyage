@@ -26,6 +26,9 @@ urlpatterns = [
 
     url(r'^chat_forum/$', views.chatForum, name="chat_forum"),
 
+    url(r'^wishlist/$', views.wishList, name="wishlist"),
+    path('deletewishlist/<str:pk>/$', views.deletewishlist, name="deletewishlist"),
+
     path('contact/',views.contact, name='contact'),
 
 
