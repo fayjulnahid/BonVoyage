@@ -325,6 +325,32 @@ def deletewishlist(request, pk):
     instance.delete()
     return redirect('main:wishlist')
 
+
+@login_required(login_url="/account/login/")
+def usersearch(request):
+    return render(request, 'main/usersearch.html')
+
+@login_required(login_url="/account/login/")
+def searcheduser(request):
+    if request.method == 'POST':
+        search = request.POST['user-search']
+        context = {}
+        context['usersearch'] = search
+        userprofile = userProfile.objects.filter(user_name__icontains=search)
+        context['userprofile'] = userprofile
+    return render(request, 'main/searcheduser.html', context)
+
+
+@login_required(login_url="/account/login/")
+def searchedUserProfile(request, pk):
+    if pk is None:
+        profile = userProfile.objects.filter(id=1)
+    else:
+        profile = userProfile.objects.filter(id=pk)
+    context = {}
+    context['profile'] = profile
+    return render(request, 'main/searchedUserProfile.html', context)
+
 def contact(request):
     if request.method == 'POST':
         name = request.POST['name']
