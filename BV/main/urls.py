@@ -29,6 +29,10 @@ urlpatterns = [
     url(r'^wishlist/$', views.wishList, name="wishlist"),
     path('deletewishlist/<str:pk>/$', views.deletewishlist, name="deletewishlist"),
 
+    url(r'^usersearch/$', views.usersearch, name="usersearch"),
+    url(r'^searcheduser/$', views.searcheduser, name="searcheduser"),
+    path('searchedUserProfile/<str:pk>/$', views.searchedUserProfile, name="searchedUserProfile"),
+
     path('contact/',views.contact, name='contact'),
 
 
