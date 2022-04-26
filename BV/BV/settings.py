@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'accounts',
     'social_django',
     'events.apps.EventsConfig',
-    'bus'
+    'bus',
+    'blogs'
 ]
 
 MIDDLEWARE = [

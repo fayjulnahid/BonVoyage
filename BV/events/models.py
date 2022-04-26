@@ -73,25 +73,7 @@ class Review(models.Model):
     objects: models.Manager()
 
 
-class Comment(models.Model):
-    op = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    # star = models.IntegerField(validators=[MaxValueValidator(5), MinValueValidator(1)], editable=True)
-    body = models.TextField(blank=True, editable=True)
-    date_posted = models.DateTimeField(auto_now_add=True, editable=False)
 
 
-class Vote(models.Model):
-    sub = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    _pointer = models.ForeignKey(Comment, on_delete=models.CASCADE)
-    upvote = models.BooleanField(default=None, editable=True, null=False)
 
 
-class Reply(models.Model):
-    op = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    _pointer = models.ForeignKey(Comment, on_delete=models.CASCADE)
-
-
-class VoteRp(models.Model):
-    sub = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    _pointer = models.ForeignKey(Reply, on_delete=models.CASCADE)
-    upvote = models.BooleanField(default=None, editable=True, null=False)
