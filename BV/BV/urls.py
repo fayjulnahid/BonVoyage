@@ -36,6 +36,7 @@ urlpatterns = [
          auth_views.PasswordResetCompleteView.as_view(template_name="password_reset_complete.html"),
          name="password_reset_complete"),
     url(r'^events/', include('events.urls')),
+    url(r'^bus/',include('bus.urls'))
 ]
 
 urlpatterns+= static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

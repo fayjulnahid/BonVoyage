@@ -43,8 +43,7 @@ class Event(models.Model):
     category = models.CharField(max_length=120, choices=category_choice, default='mx')
     objects: models.Manager()
 
-    def __str__(self):
-        return self.name
+
 
 
 class Enrollment(models.Model):

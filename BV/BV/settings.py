@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'social_django',
-    'events.apps.EventsConfig'
+    'events.apps.EventsConfig',
+    'bus'
 ]
 
 MIDDLEWARE = [
