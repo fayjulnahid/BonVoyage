@@ -31,6 +31,7 @@ def ticket_pdf(request, slug=None):
     return response
 
 def view_bus(request,slug=None):
+    #huhijkhlhlhhlhj
     bus=Schedule.objects.get(slug=slug)
     booked=Book.objects.filter(booker=request.user,bus=bus).exists()
     if request.method == "POST":
