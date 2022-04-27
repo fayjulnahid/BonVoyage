@@ -1,10 +1,10 @@
+
 <!DOCTYPE html>
 {% load static %}
 <html>
 <head>
-	<title>{{event.name}}</title>
-	<meta name="viewport" content="width=device-width">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bon Voyage: Travel With Ease</title>
+
 	<meta name="viewport" content="width=device-width">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="{% static 'main/css/all.css' %}">
@@ -110,7 +110,7 @@
 									</ul>
 								</li>
 								<li><a href="{% url 'main:about' %}">About</a></li>
-								<li><a href="/blogs">Blogs</a></li>
+								<li><a href="">Gallery</a></li>
 								<li><a href="{% url 'main:contact' %}">Contact</a></li>
 							</ul>
 						</nav>
@@ -124,146 +124,59 @@
 				</div>
 			</div>
 		</header>
-		<!-- Header Close -->
-		<section class="page-content" id="course-page">
+		<!-- Header Close -->	
+		<div class="page-content">
 			<div class="container">
-				<main class="course-detail">
-					<h2>{{bus.name}}</h2>
-					<header>
-						<div class="course-box">
-							<i class="far fa-clock"></i>
-							<p>{{bus.date}}</p>
-						</div>
-
-						<div class="course-box">
-							<i class="fas fa-chalkboard-teacher"></i>
-							<p>{{bus.time}}</p>
-						</div>
-
-						<div class="course-box">
-							<i class="fas fa-money-check-alt"></i>
-							<p>BDT {{bus.price}}</p>
-						</div>
-						<div class="course-box">
-							<i class="fas fa-star"></i>
-							<p>{{bus.available}}</p>
-						</div>
-					</header>
-					<article>
-					</article>					
-				</main>
 				<aside>
-					<section class="page-content" id="course-page-copy">
-					<div class="course-box-copy">
-						<main class="course-detail-copy">
-							<header>
-								<div class="course-box-copy">
-									<h3>Enroll</h3>
-									<form method="POST">
-										{% csrf_token %}
-										{% if enrolled %}
-											<button type="button" disabled>Enrolled</button>
-										{% else %}
-											<hr>
-											<div class="form-group">
-												<label for="members">Select passengers</label>
-												<select class="form-control" name="passenger" id="members">
-													<option>1</option>
-													<option>2</option>
-													<option>3</option>
-													<option>4</option>
-													<option>5</option>
+					<div class="news-letter">
+						<h2>Post Blog</h2>
+						<hr>
+						<form method="POST">
+							{% csrf_token %}
+							<input type="text" name="title" placeholder="An Interesting Title...">
+							<br>
+							<br>
+							<input type="text" name="body" placeholder="Write Body">
+							<br>
+							<br>
+							<label for="child">Select flair</label>
+												<select class="form-control" name="flair" id="child">
+													<option>mountain</option>
+													<option>sea</option>
+													<option>urban</option>
+													<option>rural</option>
 												</select>
-												<br>
-												<label for="mobile">Mobile</label>
-												<input type="text" class="form-control" name="mobile" id="mobile" aria-describedby="PhoneNo" placeholder="Enter mobile">
-												<br>
-												<small id="PhoneNo" class="form-text text-muted">We'll never share your contact no with anyone else.</small>
-											</div>
-										<hr>
-											<button type="submit" value="Submit">Proceed</button>
-										{% endif %}
-									</form>
-									{% if user.is_authenticated %}
-										{% if booked %}
-										<hr/>
-										<h3>Bus Ticket</h3>
-									<a href="/bus/{{bus.slug}}/token"><button type="button">Download PDF</button></a>
-										{% endif %}
-									{% endif %}
-								</div>
-							</header>
-						</main>
-					</div>
-					</section>
-					<!-- New Letter Ends -->
-					<div class="recent-post">
-						<h2>manager</h2>
-						<div class="post">
-							<div class="post-wrap">
-								<div class="img-wrap">
-									<img src="{% static 'events/images/recent-post-img.jpg' %}" alt="Post Images">
-								</div>
-								<div class="post-content">
-									<span>
-										<a href="#"><i class="fab fa-facebook-f"></i></a>
-										<a href="#"><i class="fab fa-instagram"></i></a>
-										<a href="#"><i class="fab fa-twitter"></i></a>
-										<a href="#"><i class="fab fa-linkedin-in"></i></a>
-									</span>
-								</div>
-							</div>
-						</div>
+							<br>
+							<br>
+							<input type="file" class="form-control" name="img" id="customFile" />
+							<input type="submit" value="Post now">
+						</form>
 					</div>
 					<!-- Recent Post Close -->
+					<!-- Follow Us close -->
 				</aside>
+				<br>
 			</div>
-		</section>
-		<section class="recent-course-single">
-			<div class="container">
-				<h2>recent courses</h2>
-				<div class="grid">
-					{% for Event in events_list %}
-					{% if Event.slug != slug %}
-					<div class="grid-item" data-category="{{Event.category}}">
-						<div class="img-wrap">
-							<img src="/media/{{Event.event_img}}" alt="courses picture">
-						</div>
-						<a href="/events/{{Event.slug}}" class="learn-desining-banner-course">{{Event.name}}</a>
-						<div class="box-body">
-							<p>{{Event.description}}</p>
-							<section>
-								<p><span>Date:</span>{{Event.date}}</p>
-								<p><span>Duration:</span> {{Event.duration_day}} Days, {{Event.duration_night}} Nights</p>
-								<p><span>Transport:</span> {% for transport in Event.transport.all %}{{transport}}, {% endfor %}</p>
-								<p><span>Fee:</span> {{Event.price}}</p>
-							</section>
-						</div>
-					</div>
-					{% endif %}
-					{% endfor %}
-				</div>
-			</div>
-		</section>
-
+			<br>
+		</div>
 		<section class="query-section">
 			<div class="container">
-				<p>Any Queries? Ask us a question at<a href="tel:+8801686614624"><i class="fas fa-phone"></i> +88 01686614624</a></p>
+				<p>Any Queries? Ask us a question at<a href="tel:+9779813639131"><i class="fas fa-phone"></i> +977 9813639131</a></p>
 			</div>
 		</section>
 		<!-- End of Query Section -->
-		<footer class="page-footer" itemprop="footer" itemscope itemtype="http://schema.org/WPFooter">
+		<footer class="page-footer">
 			<div class="footer-first-section">
 				<div class="container">
-					<div class="box-wrap" itemprop="about">
+					<div class="box-wrap">
 						<header>
 							<h1>about</h1>
 						</header>
-						<p>Bon Voyage is an expert travel guide agency who organizes and manages your travels in a way never happened before. Travelling with us will find you new experience, friends and peace that lasts forever.</p>
+						<p>Edugate is a great start for and education. Personnel or oganization to start the online business with 1 click</p>
 
-						<h4><a href="tel:+8801686614624"><i class="fas fa-phone"></i> +88 01686614624</a></h4>
-						<h4><a href="mailto:info@educationpro.com"><i class="fas fa-envelope"></i> info@bonvoyage.com</a></h4>
-						<h4><a href=""><i class="fas fa-map-marker-alt"></i>Aftabnagar, Dhaka, Bangladesh</a></h4>
+						<h4><a href="tel:+9779813639131"><i class="fas fa-phone"></i> +977 9813639131</a></h4>
+						<h4><a href="mailto:info@educationpro.com"><i class="fas fa-envelope"></i> info@educationpro.com</a></h4>
+						<h4><i class="fas fa-map-marker-alt"></i>Gongabu, Kathmandu, Nepal</h4>
 					</div>
 
 					<div class="box-wrap">
@@ -271,29 +184,31 @@
 							<h1>links</h1>
 						</header>
 						<ul>
-							<li><a href="#">Guides</a></li>
-							<li><a href="#">Bloggers</a></li>
-							<li><a href="#">Places</a></li>
-							<li><a href="#">Services</a></li>
+							<li><a href="#">Teacher</a></li>
+							<li><a href="#">Courses</a></li>
+							<li><a href="#">Courses</a></li>
+							<li><a href="#">Courses</a></li>
+							<li><a href="#">Courses</a></li>
+							<li><a href="#">Courses</a></li>
 						</ul>
 					</div>
 
 					<div class="box-wrap">
 						<header>
-							<h1>recent events</h1>
+							<h1>recent courses</h1>
 						</header>
 						<div class="recent-course-wrap">
-							<img src="{% static 'main/images/ui-ux.jpg' %}" alt="sundarbans-mangrove">
+							<img src="images/ui-ux.jpg" alt="Ui/Ux Designing">
 							<a href=""><div class="course-name">
-								<h3>Explore Sundarbans</h3>
-								<p><span>12000 BDT</span> 9999 BDT</p>
+								<h3>UI/UX Designer courses</h3>
+								<p><span>$50</span> $40</p>
 							</div></a>
 						</div>
 						<div class="recent-course-wrap">
-							<img src="{% static 'main/images/ui-ux.jpg' %}" alt="Cox's-Bazar">
+							<img src="images/ui-ux.jpg" alt="Ui/Ux Designing">
 							<a href=""><div class="course-name">
-								<h3>Weekend in Cox's Bazar</h3>
-								<p><span>9000 BDT</span> 7000 BDT</p>
+								<h3>UI/UX Designer courses</h3>
+								<p><span>$50</span> $40</p>
 							</div></a>
 						</div>
 					</div>
@@ -327,19 +242,18 @@
 			</div>
 			<div class="footer-last-section">
 				<div class="container">
-					<p>Copyright 2022 &copy; bonvoyage.com <span> | </span> We believe in freedom</p>
+					<p>Copyright 2018 &copy; educationpro.com <span> | </span> Theme designed and developed by <a href="https://labtheme.com">Lab Theme</a></p>
 				</div>
 			</div>
 		</footer>
 	</div>
-	<script type="text/javascript" src="{% static 'events/js/jquery-3.3.1.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'events/js/lightbox.js' %}"></script>
-	<script type="text/javascript" src="{% static 'events/js/all.js' %}"></script>
-	<script type="text/javascript" src="{% static 'events/js/isotope.pkgd.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'events/js/owl.carousel.js' %}"></script>
-	<script type="text/javascript" src="{% static 'events/js/jquery.flexslider.js' %}"></script>
-	<script type="text/javascript" src="{% static 'events/js/jquery.rateyo.js' %}"></script>
-	<script type="text/javascript" src="{% static 'events/js/jquery.mmenu.all.js' %}"></script>
-	<script type="text/javascript" src="{% static 'events/js/custom.js' %}"></script>
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="js/lightbox.js"></script>
+	<script type="text/javascript" src="js/all.js"></script>
+	<script type="text/javascript" src="js/owl.carousel.js"></script>
+	<script type="text/javascript" src="js/jquery.flexslider.js"></script>
+	<script type="text/javascript" src="js/jquery.rateyo.js"></script>
+	<script type="text/javascript" src="js/jquery.mmenu.all.js"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
 </body>
 </html>
