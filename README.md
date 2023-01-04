@@ -1,7 +1,7 @@
 # BON VOYAGE<br>
  
  
-1.   Introduction:<br>
+<b>1.   Introduction:<br>
 Bon voyage is our web application’s name. It is a kind of application where people can arrange their vacation and travel destinations with suitable prices and deals of their own. It is a commercial application.<br>
 People from time to time need recreation from their mundane life. So they often want to go on vacations or holidays to relax. But sometimes it is difficult for them to arrange since a lot of travel agencies have different prices and offers. So it becomes a little challenging for them to find a deal that will not be expensive and they can find reviews in one place. This web application will help them find good deals on places, hotels, restaurants, tickets with their reviews in one place.
 The purpose of this app is to help people get the vacation of their choice. They can also make profiles and write about their experiences in a blog. Based on their travel history they can also get different coupons and services on their wishlist of their next destinations.<br>
