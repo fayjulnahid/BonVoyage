@@ -9,7 +9,7 @@ The challenges we may face in this project is to convert this idea into a real l
  
 
 <b>2.	Non-Functional Requirements:<br></b>
-Security:<br>
+<b>Security:<br></b>
 In any project, securing the system or application is the main task. There is so much personal information about people who are involved in any web application. So, if the system is incapable of providing a proper security system then our application will not be reliable. The system should protect the privacy of the users. To fulfill the requirement of the users, they should have set some policy. Such as the system shall automatically log out all users after a period of inactivity. The system shall not leave any cookies on the user’s computer containing any of the user’s confidential information.<br><br>
  
 <b>Availability:<br></b>
