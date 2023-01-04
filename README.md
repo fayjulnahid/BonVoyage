@@ -133,4 +133,4 @@ For developing this web application, we may use some programming language to run
 29) Hotel events:
 ![Alt text](Screenshot/37.png?raw=true "Optional Title")
 
-<dt>&lt;# THANK YOU&gt;</dt>
+<center># THANK YOU</center>
