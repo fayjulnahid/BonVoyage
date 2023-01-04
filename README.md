@@ -32,7 +32,7 @@ How well the system will work depends on the maintainability of the system. By p
  
 3.    Functional Requirements:
 Users:
-●	The users will have a basic profile \n
+●	The users will have a basic profile /n
 ●	They will have a membership along with their travel history.
 ●	The users will also have an achievement level
 ●	The users can also make their wishlist for their next trip. They can also get coupons according to that.
