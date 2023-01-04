@@ -63,4 +63,73 @@ Users:<br>
 For developing this web application, we may use some programming language to run the app efficiently.<br>
 ●	HTML, CSS, Javascript.<br>
 ●	Python and django.<br>
-●	Sqlite3<br>
+●	Sqlite3<br><br>
+
+5.    GUI Screenshots:
+1) Login and Signup
+1
+2
+2) Homepage:
+3
+3) Latest news
+4
+4) Popular events
+5
+5) Profile:
+6
+6) Events:
+7
+7) Upcoming events:
+8
+9
+8) Travel token
+10
+9) Hotel reviews and reservations:
+11
+12
+10) Hotel review:
+13
+14
+11) Hotel reservation:
+15
+16
+12) Hotel room booking pdf:
+17
+13) Bus:
+18
+14) Bus ticket book:
+19
+15) User search
+20
+21
+16) Send message
+22
+17) Inbox messages:
+23
+18) Shout out
+24
+19) Wishlist
+25
+20) About us
+26
+27
+21) Contact
+28
+29
+22) Blog post:
+30
+23) Blog post details:
+31
+24) Blog comments:
+32
+25) Admin panel:
+33
+26) Admin Events:
+34
+27) Adding events in admin:
+35
+28) Bus Admin
+36
+29) Hotel events:
+37
+
