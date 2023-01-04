@@ -65,7 +65,7 @@ For developing this web application, we may use some programming language to run
 ●	Python and django.<br>
 ●	Sqlite3<br><br>
 
-5.    GUI Screenshots:
+<b>5.GUI Screenshots:</b><br>
 1) Login and Signup
 ![Alt text](Screenshot/1.png?raw=true "Optional Title")
 ![Alt text](Screenshot/2.png?raw=true "Optional Title")
