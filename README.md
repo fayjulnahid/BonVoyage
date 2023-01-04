@@ -67,69 +67,69 @@ For developing this web application, we may use some programming language to run
 
 5.    GUI Screenshots:
 1) Login and Signup
-1
-2
+![Alt text](Screenshot/1.png?raw=true "Optional Title")
+![Alt text](Screenshot/2.png?raw=true "Optional Title")
 2) Homepage:
-3
+![Alt text](Screenshot/3.png?raw=true "Optional Title")
 3) Latest news
-4
+![Alt text](Screenshot/4.png?raw=true "Optional Title")
 4) Popular events
-5
+![Alt text](Screenshot/5.png?raw=true "Optional Title")
 5) Profile:
-6
+![Alt text](Screenshot/6.png?raw=true "Optional Title")
 6) Events:
-7
+![Alt text](Screenshot/7.png?raw=true "Optional Title")
 7) Upcoming events:
-8
-9
+![Alt text](Screenshot/8.png?raw=true "Optional Title")
+![Alt text](Screenshot/9.png?raw=true "Optional Title")
 8) Travel token
-10
+![Alt text](Screenshot/10.png?raw=true "Optional Title")
 9) Hotel reviews and reservations:
-11
-12
+![Alt text](Screenshot/11.png?raw=true "Optional Title")
+![Alt text](Screenshot/12.png?raw=true "Optional Title")
 10) Hotel review:
-13
-14
+![Alt text](Screenshot/13.png?raw=true "Optional Title")
+![Alt text](Screenshot/14.png?raw=true "Optional Title")
 11) Hotel reservation:
-15
-16
+![Alt text](Screenshot/15.png?raw=true "Optional Title")
+![Alt text](Screenshot/16.png?raw=true "Optional Title")
 12) Hotel room booking pdf:
-17
+![Alt text](Screenshot/17.png?raw=true "Optional Title")
 13) Bus:
-18
+![Alt text](Screenshot/18.png?raw=true "Optional Title")
 14) Bus ticket book:
-19
+![Alt text](Screenshot/19.png?raw=true "Optional Title")
 15) User search
-20
-21
+![Alt text](Screenshot/20.png?raw=true "Optional Title")
+![Alt text](Screenshot/21.png?raw=true "Optional Title")
 16) Send message
-22
+![Alt text](Screenshot/22.png?raw=true "Optional Title")
 17) Inbox messages:
-23
+![Alt text](Screenshot/23.png?raw=true "Optional Title")
 18) Shout out
-24
+![Alt text](Screenshot/24.png?raw=true "Optional Title")
 19) Wishlist
-25
+![Alt text](Screenshot/25.png?raw=true "Optional Title")
 20) About us
-26
-27
+![Alt text](Screenshot/26.png?raw=true "Optional Title")
+![Alt text](Screenshot/27.png?raw=true "Optional Title")
 21) Contact
-28
-29
+![Alt text](Screenshot/28.png?raw=true "Optional Title")
+![Alt text](Screenshot/29.png?raw=true "Optional Title")
 22) Blog post:
-30
+![Alt text](Screenshot/30.png?raw=true "Optional Title")
 23) Blog post details:
-31
+![Alt text](Screenshot/31.png?raw=true "Optional Title")
 24) Blog comments:
-32
+![Alt text](Screenshot/32.png?raw=true "Optional Title")
 25) Admin panel:
-33
+![Alt text](Screenshot/33.png?raw=true "Optional Title")
 26) Admin Events:
-34
+![Alt text](Screenshot/34.png?raw=true "Optional Title")
 27) Adding events in admin:
-35
+![Alt text](Screenshot/35.png?raw=true "Optional Title")
 28) Bus Admin
-36
+![Alt text](Screenshot/36.png?raw=true "Optional Title")
 29) Hotel events:
-37
+![Alt text](Screenshot/37.png?raw=true "Optional Title")
 
